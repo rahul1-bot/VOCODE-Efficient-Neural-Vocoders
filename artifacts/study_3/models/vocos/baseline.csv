@@ -1,0 +1,2 @@
+architecture_name,display_name,family,parameters,size_megabytes,pesq_recorded,pesq_true_length,stoi_recorded,stoi_true_length,mel_error,multi_resolution_stft_error,mcd,utmos_strong,rtf_b200,rtf_m3_max,rtf_cpu,compute_fraction,classification,speed_quality_frontier,parameter_quality_frontier,size_quality_frontier
+vocos,Vocos,frame-level Fourier,13531650,51.623055,3.565251,3.613685,0.979314,0.979311,3.046101,0.929784,5.501836,4.088559,0.004725,0.004368,0.009780,25 percent,matched,yes,no,no

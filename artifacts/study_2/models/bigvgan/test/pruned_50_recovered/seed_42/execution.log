@@ -1,0 +1,7 @@
+2026-07-21 20:07:21.277 | INFO | Study 2 execution run_id=s2_bigvgan_pruned_50_recovered_s42_20260721_1443r architecture=bigvgan seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 20:07:21.278 | INFO | Hypothesis: Recovery fine-tuning after fifty percent pruning restores quality relative to the masked baseline.
+2026-07-21 20:12:02.963 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.005327
+2026-07-21 20:12:03.844 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":29.65152384,"total_macs":29651523840.0,"audio_seconds":1.0,"mel_frames":93,"unsupported_operators":["aten::_weight_norm","aten::add","aten::div","aten::exp","aten::mul","aten::pad","aten::pow","aten::reciprocal","aten::sin","aten::tanh"],"reason":null}
+2026-07-21 20:27:49.896 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 20:27:49.910 | INFO | Optimized-variant row 1 written for bigvgan variant=pruned_50_recovered seed=42
+2026-07-21 20:27:49.910 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1228.6s

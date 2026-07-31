@@ -1,0 +1,7 @@
+2026-07-21 08:41:21.897 | INFO | Study 2 execution run_id=s2_hifigan_v3_baseline_cpu_s43_20260721_0649 architecture=hifigan_v3 seed=43 experiment_category=optimized_variant stage=test
+2026-07-21 08:41:21.897 | INFO | Hypothesis: The unmodified fp32 baseline on the fixed CPU allocation is the denominator for every CPU deployment claim.
+2026-07-21 08:45:43.890 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.012410
+2026-07-21 08:45:44.149 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":1.933533184,"total_macs":1933533184.0,"audio_seconds":1.0,"mel_frames":86,"unsupported_operators":["aten::_weight_norm","aten::add","aten::div","aten::leaky_relu","aten::tanh"],"reason":null}
+2026-07-21 10:09:11.187 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 10:09:11.211 | INFO | Optimized-variant row 1 written for hifigan_v3 variant=baseline_cpu seed=43
+2026-07-21 10:09:11.211 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 5269.3s

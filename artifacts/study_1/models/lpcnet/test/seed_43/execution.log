@@ -1,0 +1,4 @@
+2026-07-07 08:45:12.830 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:97 - Experiment vocode_checkpoint01_training_reproduction run_id=lpcnet_final_seed43_test_20260707_1215 architecture=lpcnet seed=43 evidence_category=project_trained_reproduction stage=test
+2026-07-07 08:45:12.830 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:102 - Hypothesis: Project-trained efficient vocoder reproduces the selected published architecture under the VOCODE LJSpeech training protocol.
+2026-07-07 08:45:18.716 | WARNING  | vocode.metrics.rtf:on_predict_end:92 - RealTimeFactorMonitor collected no samples after warmup
+2026-07-07 09:06:15.752 | INFO     | vocode.trainers.scratch_reproduction_runner:_finalize_experiment_log:155 - Experiment vocode_checkpoint01_training_reproduction finished. Rows written: 1. Elapsed: 1262.9s

@@ -1,0 +1,7 @@
+2026-07-21 23:47:14.245 | INFO | Study 2 execution run_id=s2_hifigan_v3_torch_compile_s42_20260721_1918 architecture=hifigan_v3 seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 23:47:14.246 | INFO | Hypothesis: Default-mode compilation changes latency without changing quality beyond seed spread.
+2026-07-21 23:50:37.878 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000397
+2026-07-21 23:50:38.189 | INFO | macs_profile={"status":"failed","method":"fvcore_jit_trace","giga_macs_per_audio_second":null,"total_macs":null,"audio_seconds":null,"mel_frames":null,"unsupported_operators":[],"reason":"RuntimeError: Detected that you are using FX to torch.jit.trace a dynamo-optimized function. This is not supported at the moment."}
+2026-07-22 00:05:17.220 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-22 00:05:17.232 | INFO | Optimized-variant row 1 written for hifigan_v3 variant=torch_compile seed=42
+2026-07-22 00:05:17.232 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1083.0s

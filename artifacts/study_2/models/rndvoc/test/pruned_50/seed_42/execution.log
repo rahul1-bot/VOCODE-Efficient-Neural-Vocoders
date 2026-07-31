@@ -1,0 +1,7 @@
+2026-07-21 18:57:05.620 | INFO | Study 2 execution run_id=s2_rndvoc_pruned_50_s42_20260721_1443 architecture=rndvoc seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 18:57:05.620 | INFO | Hypothesis: Fifty percent masked magnitude pruning is the central sparsity-quality response point without recovery.
+2026-07-21 18:59:21.723 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.001329
+2026-07-21 18:59:22.110 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":5.085237464,"total_macs":5085237464.0,"audio_seconds":1.0,"mel_frames":87,"unsupported_operators":["aten::abs","aten::add","aten::atan2","aten::clamp_min","aten::complex","aten::cos","aten::div","aten::exp","aten::eye","aten::gelu","aten::hann_window","aten::istft","aten::linalg_vector_norm","aten::mean","aten::mul","aten::pad","aten::prelu","aten::silu","aten::sin","aten::sqrt","aten::sub","aten::var"],"reason":null}
+2026-07-21 19:13:54.365 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 19:13:54.378 | INFO | Optimized-variant row 1 written for rndvoc variant=pruned_50 seed=42
+2026-07-21 19:13:54.379 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1008.8s

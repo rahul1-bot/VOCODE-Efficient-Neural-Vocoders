@@ -1,0 +1,45 @@
+2026-07-07 13:44:39.209 | INFO | Study 2 execution run_id=hifigan_v3_pruned50_recovery_20260707_1415 architecture=hifigan_v3 seed=1234 experiment_category=optimized_variant stage=train
+2026-07-07 13:44:39.210 | INFO | Hypothesis: Project-trained efficient vocoder reproduces the selected published architecture under the VOCODE LJSpeech training protocol.
+2026-07-07 13:44:41.899 | INFO | global_unstructured masks applied to 23 weight tensors; sparsity=0.5000 coverage=0.9974
+2026-07-07 13:46:01.609 | INFO | Unrecovered masked validation recorded before recovery fine-tuning.
+2026-07-07 13:46:23.873 | INFO | Epoch 0/12
+2026-07-07 13:49:09.624 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1359.63 size_mb=832.10
+2026-07-07 13:49:10.956 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1326.81 size_mb=832.10
+2026-07-07 13:49:10.959 | INFO | Epoch 1/12
+2026-07-07 13:50:12.535 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1378.65 size_mb=832.10
+2026-07-07 13:50:13.836 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1297.74 size_mb=832.10
+2026-07-07 13:50:13.839 | INFO | Epoch 2/12
+2026-07-07 13:51:14.067 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1499.81 size_mb=832.10
+2026-07-07 13:51:15.687 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1614.17 size_mb=832.10
+2026-07-07 13:51:15.690 | INFO | Epoch 3/12
+2026-07-07 13:52:14.985 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1502.79 size_mb=832.10
+2026-07-07 13:52:16.333 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1344.05 size_mb=832.10
+2026-07-07 13:52:16.336 | INFO | Epoch 4/12
+2026-07-07 13:53:15.508 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1487.97 size_mb=832.10
+2026-07-07 13:53:17.167 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1655.39 size_mb=832.10
+2026-07-07 13:53:17.170 | INFO | Epoch 5/12
+2026-07-07 13:54:16.267 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1275.61 size_mb=832.10
+2026-07-07 13:54:18.128 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1811.73 size_mb=832.10
+2026-07-07 13:54:18.142 | INFO | Epoch 6/12
+2026-07-07 13:55:19.225 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1317.97 size_mb=832.10
+2026-07-07 13:55:20.869 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1636.68 size_mb=832.10
+2026-07-07 13:55:20.872 | INFO | Epoch 7/12
+2026-07-07 13:56:22.352 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1608.09 size_mb=832.10
+2026-07-07 13:56:23.715 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1359.37 size_mb=832.10
+2026-07-07 13:56:23.718 | INFO | Epoch 8/12
+2026-07-07 13:57:24.185 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1426.42 size_mb=832.10
+2026-07-07 13:57:25.528 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1338.32 size_mb=832.10
+2026-07-07 13:57:25.531 | INFO | Epoch 9/12
+2026-07-07 13:58:25.526 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1320.36 size_mb=832.10
+2026-07-07 13:58:27.193 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1663.17 size_mb=832.10
+2026-07-07 13:58:27.196 | INFO | Epoch 10/12
+2026-07-07 13:59:26.606 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1347.92 size_mb=832.10
+2026-07-07 13:59:28.126 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1516.24 size_mb=832.10
+2026-07-07 13:59:28.129 | INFO | Epoch 11/12
+2026-07-07 14:00:30.229 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1309.13 size_mb=832.10
+2026-07-07 14:00:31.581 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1347.25 size_mb=832.10
+2026-07-07 14:00:31.584 | INFO | Epoch 12/12
+2026-07-07 14:01:30.689 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1358.71 size_mb=832.10
+2026-07-07 14:01:32.351 | INFO | Checkpoint saved: the retained experiment checkpoint duration_ms=1654.06 size_mb=832.10
+2026-07-07 14:01:33.627 | INFO | Pruned-variant recovery finished: final sparsity 0.5000, recovered checkpoint the retained experiment checkpoint
+2026-07-07 14:01:33.628 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1014.5s

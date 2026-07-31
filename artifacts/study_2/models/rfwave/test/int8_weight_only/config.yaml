@@ -1,0 +1,15 @@
+schema_version: 1
+study: 2
+architecture: rfwave
+variant: int8_weight_only
+lane: b200
+same_lane_baseline: baseline_b200
+intervention:
+  technique: weight_only_int
+  measured_parameter_coverage: 0.8148655824349522
+  quantized_scope: network
+  bit_width: 8
+  int4_group_size: 128
+runtime_setup: {}
+measurement_note: TorchAO INT8 weight-only Linear stratum; GPU lane; quality degradation measured, not
+  assumed.

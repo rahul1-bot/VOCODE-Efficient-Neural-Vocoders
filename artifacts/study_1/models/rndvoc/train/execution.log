@@ -1,0 +1,356 @@
+2026-07-07 01:29:50.374 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:96 - Experiment vocode_checkpoint01_training_reproduction run_id=rndvoc_full_bf16bs32_20260707_0341 architecture=rndvoc seed=1234 evidence_category=project_trained_reproduction stage=train
+2026-07-07 01:29:50.374 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:101 - Hypothesis: Project-trained efficient vocoder reproduces the selected published architecture under the VOCODE LJSpeech training protocol.
+2026-07-07 01:29:55.015 | INFO     | core.trainer:_sanity_check_validation:757 - Running 2 sanity validation batches
+2026-07-07 01:30:02.181 | INFO     | loops.fit_loop:run:65 - Epoch 0/319
+2026-07-07 01:31:09.041 | INFO     | loops.fit_loop:run:65 - Epoch 1/319
+2026-07-07 01:31:56.327 | INFO     | loops.fit_loop:run:65 - Epoch 2/319
+2026-07-07 01:33:20.777 | INFO     | loops.fit_loop:run:65 - Epoch 3/319
+2026-07-07 01:34:08.148 | INFO     | loops.fit_loop:run:65 - Epoch 4/319
+2026-07-07 01:34:56.037 | INFO     | loops.fit_loop:run:65 - Epoch 5/319
+2026-07-07 01:35:45.012 | INFO     | loops.fit_loop:run:65 - Epoch 6/319
+2026-07-07 01:36:32.626 | INFO     | loops.fit_loop:run:65 - Epoch 7/319
+2026-07-07 01:37:22.008 | INFO     | loops.fit_loop:run:65 - Epoch 8/319
+2026-07-07 01:38:10.270 | INFO     | loops.fit_loop:run:65 - Epoch 9/319
+2026-07-07 01:39:00.821 | INFO     | loops.fit_loop:run:65 - Epoch 10/319
+2026-07-07 01:39:51.729 | INFO     | loops.fit_loop:run:65 - Epoch 11/319
+2026-07-07 01:40:39.258 | INFO     | loops.fit_loop:run:65 - Epoch 12/319
+2026-07-07 01:41:23.377 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=2516.85 size_mb=520.36
+2026-07-07 01:41:25.660 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: checkpoint-epoch12-step05000.ckpt duration_ms=2277.56 size_mb=520.36
+2026-07-07 01:41:34.488 | INFO     | loops.fit_loop:run:65 - Epoch 13/319
+2026-07-07 01:42:22.500 | INFO     | loops.fit_loop:run:65 - Epoch 14/319
+2026-07-07 01:43:10.170 | INFO     | loops.fit_loop:run:65 - Epoch 15/319
+2026-07-07 01:43:59.484 | INFO     | loops.fit_loop:run:65 - Epoch 16/319
+2026-07-07 01:44:47.345 | INFO     | loops.fit_loop:run:65 - Epoch 17/319
+2026-07-07 01:45:36.704 | INFO     | loops.fit_loop:run:65 - Epoch 18/319
+2026-07-07 01:46:24.533 | INFO     | loops.fit_loop:run:65 - Epoch 19/319
+2026-07-07 01:47:12.145 | INFO     | loops.fit_loop:run:65 - Epoch 20/319
+2026-07-07 01:48:01.814 | INFO     | loops.fit_loop:run:65 - Epoch 21/319
+2026-07-07 01:48:49.766 | INFO     | loops.fit_loop:run:65 - Epoch 22/319
+2026-07-07 01:49:38.088 | INFO     | loops.fit_loop:run:65 - Epoch 23/319
+2026-07-07 01:50:27.356 | INFO     | loops.fit_loop:run:65 - Epoch 24/319
+2026-07-07 01:51:15.180 | INFO     | loops.fit_loop:run:65 - Epoch 25/319
+2026-07-07 01:51:49.419 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1294.38 size_mb=520.36
+2026-07-07 01:51:50.700 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: checkpoint-epoch25-step10000.ckpt duration_ms=1277.61 size_mb=520.36
+2026-07-07 01:52:08.512 | INFO     | loops.fit_loop:run:65 - Epoch 26/319
+2026-07-07 01:52:57.253 | INFO     | loops.fit_loop:run:65 - Epoch 27/319
+2026-07-07 01:53:45.342 | INFO     | loops.fit_loop:run:65 - Epoch 28/319
+2026-07-07 01:54:35.036 | INFO     | loops.fit_loop:run:65 - Epoch 29/319
+2026-07-07 01:55:22.700 | INFO     | loops.fit_loop:run:65 - Epoch 30/319
+2026-07-07 01:56:11.468 | INFO     | loops.fit_loop:run:65 - Epoch 31/319
+2026-07-07 01:56:58.913 | INFO     | loops.fit_loop:run:65 - Epoch 32/319
+2026-07-07 01:57:46.544 | INFO     | loops.fit_loop:run:65 - Epoch 33/319
+2026-07-07 01:58:35.372 | INFO     | loops.fit_loop:run:65 - Epoch 34/319
+2026-07-07 01:59:22.917 | INFO     | loops.fit_loop:run:65 - Epoch 35/319
+2026-07-07 02:00:11.440 | INFO     | loops.fit_loop:run:65 - Epoch 36/319
+2026-07-07 02:00:58.745 | INFO     | loops.fit_loop:run:65 - Epoch 37/319
+2026-07-07 02:01:46.231 | INFO     | loops.fit_loop:run:65 - Epoch 38/319
+2026-07-07 02:02:10.639 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1126.49 size_mb=520.36
+2026-07-07 02:02:11.818 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: checkpoint-epoch38-step15000.ckpt duration_ms=1175.24 size_mb=520.36
+2026-07-07 02:02:37.420 | INFO     | loops.fit_loop:run:65 - Epoch 39/319
+2026-07-07 02:03:25.224 | INFO     | loops.fit_loop:run:65 - Epoch 40/319
+2026-07-07 02:04:13.231 | INFO     | loops.fit_loop:run:65 - Epoch 41/319
+2026-07-07 02:05:02.219 | INFO     | loops.fit_loop:run:65 - Epoch 42/319
+2026-07-07 02:05:49.929 | INFO     | loops.fit_loop:run:65 - Epoch 43/319
+2026-07-07 02:06:38.891 | INFO     | loops.fit_loop:run:65 - Epoch 44/319
+2026-07-07 02:07:26.647 | INFO     | loops.fit_loop:run:65 - Epoch 45/319
+2026-07-07 02:08:14.977 | INFO     | loops.fit_loop:run:65 - Epoch 46/319
+2026-07-07 02:09:04.477 | INFO     | loops.fit_loop:run:65 - Epoch 47/319
+2026-07-07 02:09:52.408 | INFO     | loops.fit_loop:run:65 - Epoch 48/319
+2026-07-07 02:10:41.628 | INFO     | loops.fit_loop:run:65 - Epoch 49/319
+2026-07-07 02:11:29.171 | INFO     | loops.fit_loop:run:65 - Epoch 50/319
+2026-07-07 02:12:16.664 | INFO     | loops.fit_loop:run:65 - Epoch 51/319
+2026-07-07 02:12:32.818 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1215.42 size_mb=520.36
+2026-07-07 02:12:34.065 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: checkpoint-epoch51-step20000.ckpt duration_ms=1242.49 size_mb=520.36
+2026-07-07 02:13:08.240 | INFO     | loops.fit_loop:run:65 - Epoch 52/319
+2026-07-07 02:13:55.626 | INFO     | loops.fit_loop:run:65 - Epoch 53/319
+2026-07-07 02:14:44.538 | INFO     | loops.fit_loop:run:65 - Epoch 54/319
+2026-07-07 02:15:32.440 | INFO     | loops.fit_loop:run:65 - Epoch 55/319
+2026-07-07 02:16:20.036 | INFO     | loops.fit_loop:run:65 - Epoch 56/319
+2026-07-07 02:17:09.097 | INFO     | loops.fit_loop:run:65 - Epoch 57/319
+2026-07-07 02:17:56.530 | INFO     | loops.fit_loop:run:65 - Epoch 58/319
+2026-07-07 02:18:45.227 | INFO     | loops.fit_loop:run:65 - Epoch 59/319
+2026-07-07 02:19:32.848 | INFO     | loops.fit_loop:run:65 - Epoch 60/319
+2026-07-07 02:20:20.445 | INFO     | loops.fit_loop:run:65 - Epoch 61/319
+2026-07-07 02:21:09.229 | INFO     | loops.fit_loop:run:65 - Epoch 62/319
+2026-07-07 02:21:56.644 | INFO     | loops.fit_loop:run:65 - Epoch 63/319
+2026-07-07 02:22:44.017 | INFO     | loops.fit_loop:run:65 - Epoch 64/319
+2026-07-07 02:22:51.475 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1207.81 size_mb=520.36
+2026-07-07 02:23:33.923 | INFO     | loops.fit_loop:run:65 - Epoch 65/319
+2026-07-07 02:24:21.282 | INFO     | loops.fit_loop:run:65 - Epoch 66/319
+2026-07-07 02:25:10.176 | INFO     | loops.fit_loop:run:65 - Epoch 67/319
+2026-07-07 02:25:57.409 | INFO     | loops.fit_loop:run:65 - Epoch 68/319
+2026-07-07 02:26:44.670 | INFO     | loops.fit_loop:run:65 - Epoch 69/319
+2026-07-07 02:27:33.219 | INFO     | loops.fit_loop:run:65 - Epoch 70/319
+2026-07-07 02:28:20.545 | INFO     | loops.fit_loop:run:65 - Epoch 71/319
+2026-07-07 02:29:09.299 | INFO     | loops.fit_loop:run:65 - Epoch 72/319
+2026-07-07 02:29:56.997 | INFO     | loops.fit_loop:run:65 - Epoch 73/319
+2026-07-07 02:30:44.542 | INFO     | loops.fit_loop:run:65 - Epoch 74/319
+2026-07-07 02:31:33.547 | INFO     | loops.fit_loop:run:65 - Epoch 75/319
+2026-07-07 02:32:21.076 | INFO     | loops.fit_loop:run:65 - Epoch 76/319
+2026-07-07 02:33:07.241 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1140.41 size_mb=520.36
+2026-07-07 02:33:08.378 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: checkpoint-epoch76-step30000.ckpt duration_ms=1132.38 size_mb=520.36
+2026-07-07 02:33:11.953 | INFO     | loops.fit_loop:run:65 - Epoch 77/319
+2026-07-07 02:33:59.189 | INFO     | loops.fit_loop:run:65 - Epoch 78/319
+2026-07-07 02:34:46.484 | INFO     | loops.fit_loop:run:65 - Epoch 79/319
+2026-07-07 02:35:35.289 | INFO     | loops.fit_loop:run:65 - Epoch 80/319
+2026-07-07 02:36:22.800 | INFO     | loops.fit_loop:run:65 - Epoch 81/319
+2026-07-07 02:37:10.301 | INFO     | loops.fit_loop:run:65 - Epoch 82/319
+2026-07-07 02:37:59.494 | INFO     | loops.fit_loop:run:65 - Epoch 83/319
+2026-07-07 02:38:47.685 | INFO     | loops.fit_loop:run:65 - Epoch 84/319
+2026-07-07 02:39:37.191 | INFO     | loops.fit_loop:run:65 - Epoch 85/319
+2026-07-07 02:40:25.018 | INFO     | loops.fit_loop:run:65 - Epoch 86/319
+2026-07-07 02:41:13.162 | INFO     | loops.fit_loop:run:65 - Epoch 87/319
+2026-07-07 02:42:02.281 | INFO     | loops.fit_loop:run:65 - Epoch 88/319
+2026-07-07 02:42:50.239 | INFO     | loops.fit_loop:run:65 - Epoch 89/319
+2026-07-07 02:43:28.231 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1128.51 size_mb=520.36
+2026-07-07 02:43:29.325 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: checkpoint-epoch89-step35000.ckpt duration_ms=1090.56 size_mb=520.36
+2026-07-07 02:43:41.519 | INFO     | loops.fit_loop:run:65 - Epoch 90/319
+2026-07-07 02:44:29.185 | INFO     | loops.fit_loop:run:65 - Epoch 91/319
+2026-07-07 02:45:16.796 | INFO     | loops.fit_loop:run:65 - Epoch 92/319
+2026-07-07 02:46:06.054 | INFO     | loops.fit_loop:run:65 - Epoch 93/319
+2026-07-07 02:46:53.683 | INFO     | loops.fit_loop:run:65 - Epoch 94/319
+2026-07-07 02:47:42.465 | INFO     | loops.fit_loop:run:65 - Epoch 95/319
+2026-07-07 02:48:30.186 | INFO     | loops.fit_loop:run:65 - Epoch 96/319
+2026-07-07 02:49:18.089 | INFO     | loops.fit_loop:run:65 - Epoch 97/319
+2026-07-07 02:50:06.975 | INFO     | loops.fit_loop:run:65 - Epoch 98/319
+2026-07-07 02:50:54.463 | INFO     | loops.fit_loop:run:65 - Epoch 99/319
+2026-07-07 02:51:43.450 | INFO     | loops.fit_loop:run:65 - Epoch 100/319
+2026-07-07 02:52:31.172 | INFO     | loops.fit_loop:run:65 - Epoch 101/319
+2026-07-07 02:53:18.927 | INFO     | loops.fit_loop:run:65 - Epoch 102/319
+2026-07-07 02:53:48.313 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1189.25 size_mb=520.36
+2026-07-07 02:54:08.916 | INFO     | loops.fit_loop:run:65 - Epoch 103/319
+2026-07-07 02:54:56.186 | INFO     | loops.fit_loop:run:65 - Epoch 104/319
+2026-07-07 02:55:43.557 | INFO     | loops.fit_loop:run:65 - Epoch 105/319
+2026-07-07 02:56:32.001 | INFO     | loops.fit_loop:run:65 - Epoch 106/319
+2026-07-07 02:57:19.293 | INFO     | loops.fit_loop:run:65 - Epoch 107/319
+2026-07-07 02:58:08.035 | INFO     | loops.fit_loop:run:65 - Epoch 108/319
+2026-07-07 02:58:55.458 | INFO     | loops.fit_loop:run:65 - Epoch 109/319
+2026-07-07 02:59:42.789 | INFO     | loops.fit_loop:run:65 - Epoch 110/319
+2026-07-07 03:00:31.661 | INFO     | loops.fit_loop:run:65 - Epoch 111/319
+2026-07-07 03:01:18.801 | INFO     | loops.fit_loop:run:65 - Epoch 112/319
+2026-07-07 03:02:07.196 | INFO     | loops.fit_loop:run:65 - Epoch 113/319
+2026-07-07 03:02:54.425 | INFO     | loops.fit_loop:run:65 - Epoch 114/319
+2026-07-07 03:03:41.714 | INFO     | loops.fit_loop:run:65 - Epoch 115/319
+2026-07-07 03:04:02.637 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1154.45 size_mb=520.36
+2026-07-07 03:04:31.899 | INFO     | loops.fit_loop:run:65 - Epoch 116/319
+2026-07-07 03:05:19.683 | INFO     | loops.fit_loop:run:65 - Epoch 117/319
+2026-07-07 03:06:08.617 | INFO     | loops.fit_loop:run:65 - Epoch 118/319
+2026-07-07 03:06:56.328 | INFO     | loops.fit_loop:run:65 - Epoch 119/319
+2026-07-07 03:07:43.818 | INFO     | loops.fit_loop:run:65 - Epoch 120/319
+2026-07-07 03:08:32.838 | INFO     | loops.fit_loop:run:65 - Epoch 121/319
+2026-07-07 03:09:20.942 | INFO     | loops.fit_loop:run:65 - Epoch 122/319
+2026-07-07 03:10:09.076 | INFO     | loops.fit_loop:run:65 - Epoch 123/319
+2026-07-07 03:10:58.764 | INFO     | loops.fit_loop:run:65 - Epoch 124/319
+2026-07-07 03:11:46.648 | INFO     | loops.fit_loop:run:65 - Epoch 125/319
+2026-07-07 03:12:35.918 | INFO     | loops.fit_loop:run:65 - Epoch 126/319
+2026-07-07 03:13:24.000 | INFO     | loops.fit_loop:run:65 - Epoch 127/319
+2026-07-07 03:14:11.969 | INFO     | loops.fit_loop:run:65 - Epoch 128/319
+2026-07-07 03:14:24.377 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1240.94 size_mb=520.36
+2026-07-07 03:15:02.243 | INFO     | loops.fit_loop:run:65 - Epoch 129/319
+2026-07-07 03:15:50.064 | INFO     | loops.fit_loop:run:65 - Epoch 130/319
+2026-07-07 03:16:39.418 | INFO     | loops.fit_loop:run:65 - Epoch 131/319
+2026-07-07 03:17:27.368 | INFO     | loops.fit_loop:run:65 - Epoch 132/319
+2026-07-07 03:18:15.279 | INFO     | loops.fit_loop:run:65 - Epoch 133/319
+2026-07-07 03:19:04.455 | INFO     | loops.fit_loop:run:65 - Epoch 134/319
+2026-07-07 03:19:52.928 | INFO     | loops.fit_loop:run:65 - Epoch 135/319
+2026-07-07 03:20:43.957 | INFO     | loops.fit_loop:run:65 - Epoch 136/319
+2026-07-07 03:21:32.160 | INFO     | loops.fit_loop:run:65 - Epoch 137/319
+2026-07-07 03:22:19.455 | INFO     | loops.fit_loop:run:65 - Epoch 138/319
+2026-07-07 03:23:08.244 | INFO     | loops.fit_loop:run:65 - Epoch 139/319
+2026-07-07 03:23:55.705 | INFO     | loops.fit_loop:run:65 - Epoch 140/319
+2026-07-07 03:24:43.066 | INFO     | loops.fit_loop:run:65 - Epoch 141/319
+2026-07-07 03:24:46.744 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1117.15 size_mb=520.36
+2026-07-07 03:25:32.656 | INFO     | loops.fit_loop:run:65 - Epoch 142/319
+2026-07-07 03:26:19.736 | INFO     | loops.fit_loop:run:65 - Epoch 143/319
+2026-07-07 03:27:08.004 | INFO     | loops.fit_loop:run:65 - Epoch 144/319
+2026-07-07 03:27:55.075 | INFO     | loops.fit_loop:run:65 - Epoch 145/319
+2026-07-07 03:28:42.189 | INFO     | loops.fit_loop:run:65 - Epoch 146/319
+2026-07-07 03:29:30.475 | INFO     | loops.fit_loop:run:65 - Epoch 147/319
+2026-07-07 03:30:17.517 | INFO     | loops.fit_loop:run:65 - Epoch 148/319
+2026-07-07 03:31:05.832 | INFO     | loops.fit_loop:run:65 - Epoch 149/319
+2026-07-07 03:31:52.896 | INFO     | loops.fit_loop:run:65 - Epoch 150/319
+2026-07-07 03:32:40.079 | INFO     | loops.fit_loop:run:65 - Epoch 151/319
+2026-07-07 03:33:28.555 | INFO     | loops.fit_loop:run:65 - Epoch 152/319
+2026-07-07 03:34:15.687 | INFO     | loops.fit_loop:run:65 - Epoch 153/319
+2026-07-07 03:34:58.048 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1113.40 size_mb=520.36
+2026-07-07 03:34:59.129 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: checkpoint-epoch153-step60000.ckpt duration_ms=1077.52 size_mb=520.36
+2026-07-07 03:35:06.407 | INFO     | loops.fit_loop:run:65 - Epoch 154/319
+2026-07-07 03:35:53.636 | INFO     | loops.fit_loop:run:65 - Epoch 155/319
+2026-07-07 03:36:40.798 | INFO     | loops.fit_loop:run:65 - Epoch 156/319
+2026-07-07 03:37:29.145 | INFO     | loops.fit_loop:run:65 - Epoch 157/319
+2026-07-07 03:38:16.231 | INFO     | loops.fit_loop:run:65 - Epoch 158/319
+2026-07-07 03:39:04.608 | INFO     | loops.fit_loop:run:65 - Epoch 159/319
+2026-07-07 03:39:51.767 | INFO     | loops.fit_loop:run:65 - Epoch 160/319
+2026-07-07 03:40:38.829 | INFO     | loops.fit_loop:run:65 - Epoch 161/319
+2026-07-07 03:41:27.211 | INFO     | loops.fit_loop:run:65 - Epoch 162/319
+2026-07-07 03:42:14.364 | INFO     | loops.fit_loop:run:65 - Epoch 163/319
+2026-07-07 03:43:01.573 | INFO     | loops.fit_loop:run:65 - Epoch 164/319
+2026-07-07 03:43:50.819 | INFO     | loops.fit_loop:run:65 - Epoch 165/319
+2026-07-07 03:44:38.429 | INFO     | loops.fit_loop:run:65 - Epoch 166/319
+2026-07-07 03:45:12.981 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1437.79 size_mb=520.36
+2026-07-07 03:45:28.771 | INFO     | loops.fit_loop:run:65 - Epoch 167/319
+2026-07-07 03:46:16.357 | INFO     | loops.fit_loop:run:65 - Epoch 168/319
+2026-07-07 03:47:03.959 | INFO     | loops.fit_loop:run:65 - Epoch 169/319
+2026-07-07 03:47:52.928 | INFO     | loops.fit_loop:run:65 - Epoch 170/319
+2026-07-07 03:48:40.477 | INFO     | loops.fit_loop:run:65 - Epoch 171/319
+2026-07-07 03:49:29.074 | INFO     | loops.fit_loop:run:65 - Epoch 172/319
+2026-07-07 03:50:16.429 | INFO     | loops.fit_loop:run:65 - Epoch 173/319
+2026-07-07 03:51:03.822 | INFO     | loops.fit_loop:run:65 - Epoch 174/319
+2026-07-07 03:51:52.130 | INFO     | loops.fit_loop:run:65 - Epoch 175/319
+2026-07-07 03:52:39.203 | INFO     | loops.fit_loop:run:65 - Epoch 176/319
+2026-07-07 03:53:27.746 | INFO     | loops.fit_loop:run:65 - Epoch 177/319
+2026-07-07 03:54:15.450 | INFO     | loops.fit_loop:run:65 - Epoch 178/319
+2026-07-07 03:55:02.974 | INFO     | loops.fit_loop:run:65 - Epoch 179/319
+2026-07-07 03:55:28.874 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1229.40 size_mb=520.36
+2026-07-07 03:55:53.257 | INFO     | loops.fit_loop:run:65 - Epoch 180/319
+2026-07-07 03:56:40.642 | INFO     | loops.fit_loop:run:65 - Epoch 181/319
+2026-07-07 03:57:28.122 | INFO     | loops.fit_loop:run:65 - Epoch 182/319
+2026-07-07 03:58:17.080 | INFO     | loops.fit_loop:run:65 - Epoch 183/319
+2026-07-07 03:59:04.698 | INFO     | loops.fit_loop:run:65 - Epoch 184/319
+2026-07-07 03:59:53.675 | INFO     | loops.fit_loop:run:65 - Epoch 185/319
+2026-07-07 04:00:41.295 | INFO     | loops.fit_loop:run:65 - Epoch 186/319
+2026-07-07 04:01:28.668 | INFO     | loops.fit_loop:run:65 - Epoch 187/319
+2026-07-07 04:02:17.291 | INFO     | loops.fit_loop:run:65 - Epoch 188/319
+2026-07-07 04:03:04.826 | INFO     | loops.fit_loop:run:65 - Epoch 189/319
+2026-07-07 04:03:53.990 | INFO     | loops.fit_loop:run:65 - Epoch 190/319
+2026-07-07 04:04:41.867 | INFO     | loops.fit_loop:run:65 - Epoch 191/319
+2026-07-07 04:05:29.731 | INFO     | loops.fit_loop:run:65 - Epoch 192/319
+2026-07-07 04:05:47.281 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1335.44 size_mb=520.36
+2026-07-07 04:06:20.430 | INFO     | loops.fit_loop:run:65 - Epoch 193/319
+2026-07-07 04:07:08.561 | INFO     | loops.fit_loop:run:65 - Epoch 194/319
+2026-07-07 04:07:57.600 | INFO     | loops.fit_loop:run:65 - Epoch 195/319
+2026-07-07 04:08:45.539 | INFO     | loops.fit_loop:run:65 - Epoch 196/319
+2026-07-07 04:09:33.935 | INFO     | loops.fit_loop:run:65 - Epoch 197/319
+2026-07-07 04:10:23.307 | INFO     | loops.fit_loop:run:65 - Epoch 198/319
+2026-07-07 04:11:11.123 | INFO     | loops.fit_loop:run:65 - Epoch 199/319
+2026-07-07 04:11:59.739 | INFO     | loops.fit_loop:run:65 - Epoch 200/319
+2026-07-07 04:12:47.547 | INFO     | loops.fit_loop:run:65 - Epoch 201/319
+2026-07-07 04:13:34.781 | INFO     | loops.fit_loop:run:65 - Epoch 202/319
+2026-07-07 04:14:23.342 | INFO     | loops.fit_loop:run:65 - Epoch 203/319
+2026-07-07 04:15:10.494 | INFO     | loops.fit_loop:run:65 - Epoch 204/319
+2026-07-07 04:15:57.475 | INFO     | loops.fit_loop:run:65 - Epoch 205/319
+2026-07-07 04:16:05.911 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1112.77 size_mb=520.36
+2026-07-07 04:16:47.126 | INFO     | loops.fit_loop:run:65 - Epoch 206/319
+2026-07-07 04:17:34.389 | INFO     | loops.fit_loop:run:65 - Epoch 207/319
+2026-07-07 04:18:23.054 | INFO     | loops.fit_loop:run:65 - Epoch 208/319
+2026-07-07 04:19:10.301 | INFO     | loops.fit_loop:run:65 - Epoch 209/319
+2026-07-07 04:19:57.679 | INFO     | loops.fit_loop:run:65 - Epoch 210/319
+2026-07-07 04:20:46.692 | INFO     | loops.fit_loop:run:65 - Epoch 211/319
+2026-07-07 04:21:34.398 | INFO     | loops.fit_loop:run:65 - Epoch 212/319
+2026-07-07 04:22:23.590 | INFO     | loops.fit_loop:run:65 - Epoch 213/319
+2026-07-07 04:23:11.215 | INFO     | loops.fit_loop:run:65 - Epoch 214/319
+2026-07-07 04:23:59.136 | INFO     | loops.fit_loop:run:65 - Epoch 215/319
+2026-07-07 04:24:48.494 | INFO     | loops.fit_loop:run:65 - Epoch 216/319
+2026-07-07 04:25:36.194 | INFO     | loops.fit_loop:run:65 - Epoch 217/319
+2026-07-07 04:26:23.865 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1102.83 size_mb=520.36
+2026-07-07 04:26:26.251 | INFO     | loops.fit_loop:run:65 - Epoch 218/319
+2026-07-07 04:27:13.799 | INFO     | loops.fit_loop:run:65 - Epoch 219/319
+2026-07-07 04:28:01.364 | INFO     | loops.fit_loop:run:65 - Epoch 220/319
+2026-07-07 04:28:50.269 | INFO     | loops.fit_loop:run:65 - Epoch 221/319
+2026-07-07 04:29:37.588 | INFO     | loops.fit_loop:run:65 - Epoch 222/319
+2026-07-07 04:30:24.871 | INFO     | loops.fit_loop:run:65 - Epoch 223/319
+2026-07-07 04:31:13.719 | INFO     | loops.fit_loop:run:65 - Epoch 224/319
+2026-07-07 04:32:00.918 | INFO     | loops.fit_loop:run:65 - Epoch 225/319
+2026-07-07 04:32:49.372 | INFO     | loops.fit_loop:run:65 - Epoch 226/319
+2026-07-07 04:33:36.571 | INFO     | loops.fit_loop:run:65 - Epoch 227/319
+2026-07-07 04:34:23.786 | INFO     | loops.fit_loop:run:65 - Epoch 228/319
+2026-07-07 04:35:12.294 | INFO     | loops.fit_loop:run:65 - Epoch 229/319
+2026-07-07 04:35:59.857 | INFO     | loops.fit_loop:run:65 - Epoch 230/319
+2026-07-07 04:36:39.462 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1495.10 size_mb=520.36
+2026-07-07 04:36:50.459 | INFO     | loops.fit_loop:run:65 - Epoch 231/319
+2026-07-07 04:37:38.541 | INFO     | loops.fit_loop:run:65 - Epoch 232/319
+2026-07-07 04:38:26.357 | INFO     | loops.fit_loop:run:65 - Epoch 233/319
+2026-07-07 04:39:15.518 | INFO     | loops.fit_loop:run:65 - Epoch 234/319
+2026-07-07 04:40:03.002 | INFO     | loops.fit_loop:run:65 - Epoch 235/319
+2026-07-07 04:40:52.103 | INFO     | loops.fit_loop:run:65 - Epoch 236/319
+2026-07-07 04:41:39.468 | INFO     | loops.fit_loop:run:65 - Epoch 237/319
+2026-07-07 04:42:27.256 | INFO     | loops.fit_loop:run:65 - Epoch 238/319
+2026-07-07 04:43:16.044 | INFO     | loops.fit_loop:run:65 - Epoch 239/319
+2026-07-07 04:44:03.401 | INFO     | loops.fit_loop:run:65 - Epoch 240/319
+2026-07-07 04:44:50.681 | INFO     | loops.fit_loop:run:65 - Epoch 241/319
+2026-07-07 04:45:39.429 | INFO     | loops.fit_loop:run:65 - Epoch 242/319
+2026-07-07 04:46:26.795 | INFO     | loops.fit_loop:run:65 - Epoch 243/319
+2026-07-07 04:46:57.311 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1146.16 size_mb=520.36
+2026-07-07 04:47:16.723 | INFO     | loops.fit_loop:run:65 - Epoch 244/319
+2026-07-07 04:48:04.094 | INFO     | loops.fit_loop:run:65 - Epoch 245/319
+2026-07-07 04:48:51.151 | INFO     | loops.fit_loop:run:65 - Epoch 246/319
+2026-07-07 04:49:39.639 | INFO     | loops.fit_loop:run:65 - Epoch 247/319
+2026-07-07 04:50:28.147 | INFO     | loops.fit_loop:run:65 - Epoch 248/319
+2026-07-07 04:51:17.038 | INFO     | loops.fit_loop:run:65 - Epoch 249/319
+2026-07-07 04:52:04.308 | INFO     | loops.fit_loop:run:65 - Epoch 250/319
+2026-07-07 04:52:51.795 | INFO     | loops.fit_loop:run:65 - Epoch 251/319
+2026-07-07 04:53:40.554 | INFO     | loops.fit_loop:run:65 - Epoch 252/319
+2026-07-07 04:54:28.487 | INFO     | loops.fit_loop:run:65 - Epoch 253/319
+2026-07-07 04:55:17.890 | INFO     | loops.fit_loop:run:65 - Epoch 254/319
+2026-07-07 04:56:06.274 | INFO     | loops.fit_loop:run:65 - Epoch 255/319
+2026-07-07 04:56:54.450 | INFO     | loops.fit_loop:run:65 - Epoch 256/319
+2026-07-07 04:57:16.708 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1213.55 size_mb=520.36
+2026-07-07 04:57:44.879 | INFO     | loops.fit_loop:run:65 - Epoch 257/319
+2026-07-07 04:58:32.809 | INFO     | loops.fit_loop:run:65 - Epoch 258/319
+2026-07-07 04:59:22.136 | INFO     | loops.fit_loop:run:65 - Epoch 259/319
+2026-07-07 05:00:09.878 | INFO     | loops.fit_loop:run:65 - Epoch 260/319
+2026-07-07 05:00:57.508 | INFO     | loops.fit_loop:run:65 - Epoch 261/319
+2026-07-07 05:01:46.535 | INFO     | loops.fit_loop:run:65 - Epoch 262/319
+2026-07-07 05:02:34.264 | INFO     | loops.fit_loop:run:65 - Epoch 263/319
+2026-07-07 05:03:21.866 | INFO     | loops.fit_loop:run:65 - Epoch 264/319
+2026-07-07 05:04:10.508 | INFO     | loops.fit_loop:run:65 - Epoch 265/319
+2026-07-07 05:04:58.476 | INFO     | loops.fit_loop:run:65 - Epoch 266/319
+2026-07-07 05:05:47.176 | INFO     | loops.fit_loop:run:65 - Epoch 267/319
+2026-07-07 05:06:34.377 | INFO     | loops.fit_loop:run:65 - Epoch 268/319
+2026-07-07 05:07:21.720 | INFO     | loops.fit_loop:run:65 - Epoch 269/319
+2026-07-07 05:07:35.488 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1357.73 size_mb=520.36
+2026-07-07 05:08:11.929 | INFO     | loops.fit_loop:run:65 - Epoch 270/319
+2026-07-07 05:08:59.369 | INFO     | loops.fit_loop:run:65 - Epoch 271/319
+2026-07-07 05:09:48.181 | INFO     | loops.fit_loop:run:65 - Epoch 272/319
+2026-07-07 05:10:35.658 | INFO     | loops.fit_loop:run:65 - Epoch 273/319
+2026-07-07 05:11:23.006 | INFO     | loops.fit_loop:run:65 - Epoch 274/319
+2026-07-07 05:12:11.867 | INFO     | loops.fit_loop:run:65 - Epoch 275/319
+2026-07-07 05:12:59.680 | INFO     | loops.fit_loop:run:65 - Epoch 276/319
+2026-07-07 05:13:48.314 | INFO     | loops.fit_loop:run:65 - Epoch 277/319
+2026-07-07 05:14:35.596 | INFO     | loops.fit_loop:run:65 - Epoch 278/319
+2026-07-07 05:15:22.917 | INFO     | loops.fit_loop:run:65 - Epoch 279/319
+2026-07-07 05:16:11.992 | INFO     | loops.fit_loop:run:65 - Epoch 280/319
+2026-07-07 05:16:59.705 | INFO     | loops.fit_loop:run:65 - Epoch 281/319
+2026-07-07 05:17:47.288 | INFO     | loops.fit_loop:run:65 - Epoch 282/319
+2026-07-07 05:17:52.253 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1102.07 size_mb=520.36
+2026-07-07 05:18:37.246 | INFO     | loops.fit_loop:run:65 - Epoch 283/319
+2026-07-07 05:19:25.630 | INFO     | loops.fit_loop:run:65 - Epoch 284/319
+2026-07-07 05:20:14.129 | INFO     | loops.fit_loop:run:65 - Epoch 285/319
+2026-07-07 05:21:01.315 | INFO     | loops.fit_loop:run:65 - Epoch 286/319
+2026-07-07 05:21:49.618 | INFO     | loops.fit_loop:run:65 - Epoch 287/319
+2026-07-07 05:22:38.950 | INFO     | loops.fit_loop:run:65 - Epoch 288/319
+2026-07-07 05:23:26.476 | INFO     | loops.fit_loop:run:65 - Epoch 289/319
+2026-07-07 05:24:15.257 | INFO     | loops.fit_loop:run:65 - Epoch 290/319
+2026-07-07 05:25:02.570 | INFO     | loops.fit_loop:run:65 - Epoch 291/319
+2026-07-07 05:25:50.610 | INFO     | loops.fit_loop:run:65 - Epoch 292/319
+2026-07-07 05:26:39.528 | INFO     | loops.fit_loop:run:65 - Epoch 293/319
+2026-07-07 05:27:27.136 | INFO     | loops.fit_loop:run:65 - Epoch 294/319
+2026-07-07 05:28:11.316 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1241.47 size_mb=520.36
+2026-07-07 05:28:17.418 | INFO     | loops.fit_loop:run:65 - Epoch 295/319
+2026-07-07 05:29:04.876 | INFO     | loops.fit_loop:run:65 - Epoch 296/319
+2026-07-07 05:29:52.523 | INFO     | loops.fit_loop:run:65 - Epoch 297/319
+2026-07-07 05:30:41.353 | INFO     | loops.fit_loop:run:65 - Epoch 298/319
+2026-07-07 05:31:28.882 | INFO     | loops.fit_loop:run:65 - Epoch 299/319
+2026-07-07 05:32:17.367 | INFO     | loops.fit_loop:run:65 - Epoch 300/319
+2026-07-07 05:33:04.683 | INFO     | loops.fit_loop:run:65 - Epoch 301/319
+2026-07-07 05:33:52.167 | INFO     | loops.fit_loop:run:65 - Epoch 302/319
+2026-07-07 05:34:40.761 | INFO     | loops.fit_loop:run:65 - Epoch 303/319
+2026-07-07 05:35:28.172 | INFO     | loops.fit_loop:run:65 - Epoch 304/319
+2026-07-07 05:36:15.563 | INFO     | loops.fit_loop:run:65 - Epoch 305/319
+2026-07-07 05:37:04.214 | INFO     | loops.fit_loop:run:65 - Epoch 306/319
+2026-07-07 05:37:51.539 | INFO     | loops.fit_loop:run:65 - Epoch 307/319
+2026-07-07 05:38:27.160 | INFO     | callbacks.model_checkpoint:_save_checkpoint:200 - Checkpoint saved: last.ckpt duration_ms=1254.12 size_mb=520.36
+2026-07-07 05:38:41.897 | INFO     | loops.fit_loop:run:65 - Epoch 308/319
+2026-07-07 05:39:29.382 | INFO     | loops.fit_loop:run:65 - Epoch 309/319
+2026-07-07 05:40:16.744 | INFO     | loops.fit_loop:run:65 - Epoch 310/319
+2026-07-07 05:41:05.452 | INFO     | loops.fit_loop:run:65 - Epoch 311/319
+2026-07-07 05:41:52.719 | INFO     | loops.fit_loop:run:65 - Epoch 312/319
+2026-07-07 05:42:41.158 | INFO     | loops.fit_loop:run:65 - Epoch 313/319
+2026-07-07 05:43:28.321 | INFO     | loops.fit_loop:run:65 - Epoch 314/319
+2026-07-07 05:44:15.491 | INFO     | loops.fit_loop:run:65 - Epoch 315/319
+2026-07-07 05:45:03.784 | INFO     | loops.fit_loop:run:65 - Epoch 316/319
+2026-07-07 05:45:50.903 | INFO     | loops.fit_loop:run:65 - Epoch 317/319
+2026-07-07 05:46:39.313 | INFO     | loops.fit_loop:run:65 - Epoch 318/319
+2026-07-07 05:47:27.009 | INFO     | loops.fit_loop:run:65 - Epoch 319/319
+2026-07-07 05:48:14.092 | INFO     | vocode.trainers.reproduction_training_runner:_run_training:164 - Project-trained reproduction checkpoint written for rndvoc seed=1234; checkpoint metadata recorded
+2026-07-07 05:48:14.109 | INFO     | vocode.trainers.scratch_reproduction_runner:_finalize_experiment_log:132 - Experiment vocode_checkpoint01_training_reproduction finished. Rows written: 1. Elapsed: 15503.8s

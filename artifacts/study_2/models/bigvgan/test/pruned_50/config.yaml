@@ -1,0 +1,15 @@
+schema_version: 1
+study: 2
+architecture: bigvgan
+variant: pruned_50
+lane: b200
+same_lane_baseline: baseline_b200
+intervention:
+  technique: masked_magnitude_pruning
+  pruning_arm: global_unstructured
+  pruning_amount: 0.5
+  measured_sparsity: 0.5
+  covered_parameter_fraction: 0.9973554657581657
+runtime_setup: {}
+measurement_note: Masked magnitude pruning without recovery; robustness curve point; no speedup expected
+  from masked zeros.

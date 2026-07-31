@@ -1,0 +1,4 @@
+2026-07-08 02:31:16.816 | INFO     | vocode.experiments.run_tracker:_announce_run:93 - Experiment vocode_checkpoint01_training_reproduction run_id=rfwave_final_seed44_test_20260708_0525 architecture=rfwave seed=44 evidence_category=project_trained_reproduction stage=test
+2026-07-08 02:31:16.816 | INFO     | vocode.experiments.run_tracker:_announce_run:98 - Hypothesis: Project-trained efficient vocoder reproduces the selected published architecture under the VOCODE LJSpeech training protocol.
+2026-07-08 02:32:17.117 | INFO     | vocode.metrics.rtf:on_predict_end:98 - RealTimeFactor over 520 utterances: 0.015066
+2026-07-08 02:34:37.977 | INFO     | vocode.experiments.run_tracker:_finalize_run_log:103 - Experiment vocode_checkpoint01_training_reproduction finished. Rows written: 1. Elapsed: 201.2s

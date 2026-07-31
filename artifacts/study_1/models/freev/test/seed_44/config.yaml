@@ -1,0 +1,49 @@
+schema_version: 1
+experiment:
+  id: freev_final_seed44_test_20260706_2207
+  study: 1
+  stage: test
+  architecture: freev
+  variant: official_ljspeech
+  dataset: LJSpeech-1.1
+  seed: 44
+  seed_role: evaluation
+  status: completed
+data:
+  sample_rate: 22050
+  partition_strategy: ordered_identifier_holdout
+  train_utterances: 12475
+  validation_utterances: 100
+  test_utterances: 525
+  test_batch_size: 16
+  test_shuffle: false
+  full_utterances: true
+checkpoint:
+  epoch: 307
+  global_step: 120000
+  evaluated_source_role: equivalent_last_checkpoint_state
+execution:
+  accelerator: cuda
+  hardware: nvidia_b200
+  precision: fp32
+  rtf_warmup_utterances: 5
+  rtf_timed_utterances: 520
+  runtime_profiling_enabled: true
+  runtime_profile_interval_steps: 50
+metrics:
+  study_1:
+  - pesq
+  - stoi
+  - mel_error
+  - real_time_factor
+  - multi_resolution_stft_error
+  - pesq_wb_enrichment
+  - pesq_wb_enrichment_delta
+  - stoi_enrichment
+  - mcd
+  - f0_rmse_cents
+  - periodicity_rmse
+  - vuv_f1
+  - utmos_strong
+  - las_rmse
+  - macs_per_second_audio

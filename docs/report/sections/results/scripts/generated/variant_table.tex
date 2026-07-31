@@ -1,0 +1,33 @@
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrcrcrr@{}}
+  \toprule
+  Variant & $n$ & B/I/H & Med.\ $\Delta$PESQ & $\Delta$PESQ range & Med.\ $S_a$ & Med.\ $Z_a$ \\
+  \midrule
+  \multicolumn{7}{@{}l}{\emph{Compilation}} \\
+  \quad Default mode & 11 & 4/5/2 & $-0.0000$ & $[-0.000, +0.000]$ & 1.07 & 1.00 \\
+  \quad Reduce-overhead mode & 4 & 1/0/3 & $-0.0000$ & $[-0.000, +0.000]$ & 0.40 & 1.00 \\
+  \addlinespace[2pt]
+  \multicolumn{7}{@{}l}{\emph{FP16}} \\
+  \quad Weight cast & 10 & 8/2/0 & $-0.0002$ & $[-0.002, +0.001]$ & 1.08 & 0.50 \\
+  \addlinespace[2pt]
+  \multicolumn{7}{@{}l}{\emph{INT8}} \\
+  \quad Dynamic & 5 & 2/1/2 & $-0.0469$ & $[-0.648, +0.004]$ & 1.30 & 0.40 \\
+  \quad Weight-only & 4 & 2/2/0 & $-0.0010$ & $[-0.003, +0.002]$ & 0.92 & 0.41 \\
+  \addlinespace[2pt]
+  \multicolumn{7}{@{}l}{\emph{ONNX}} \\
+  \quad FP32 export & 4 & 1/2/1 & $-0.0000$ & $[-0.000, +0.000]$ & 0.90 & 1.00 \\
+  \quad INT8 static & 4 & 0/1/3 & $-0.7701$ & $[-1.329, -0.004]$ & 0.82 & 0.26 \\
+  \addlinespace[2pt]
+  \multicolumn{7}{@{}l}{\emph{Pruning}} \\
+  \quad 30\% sparsity & 4 & 0/0/4 & $-1.0259$ & $[-2.740, -0.148]$ & 0.95 & 1.00 \\
+  \quad 50\% sparsity & 11 & 0/1/10 & $-1.0632$ & $[-2.719, +0.000]$ & 1.00 & 1.00 \\
+  \quad 70\% sparsity & 4 & 0/0/4 & $-2.2722$ & $[-2.712, -2.014]$ & 1.03 & 1.00 \\
+  \addlinespace[2pt]
+  \multicolumn{7}{@{}l}{\emph{Recovery}} \\
+  \quad 50\% + recovery & 5 & 0/4/1 & $-0.0070$ & $[-0.475, +0.017]$ & 1.11 & 1.00 \\
+  \addlinespace[2pt]
+  \multicolumn{7}{@{}l}{\emph{ODE steps}} \\
+  \quad 8 steps & 1 & 1/0/0 & $-0.0456$ & n/a & 1.20 & 1.00 \\
+  \quad 4 steps & 1 & 0/0/1 & $-0.3689$ & n/a & 2.20 & 1.00 \\
+  \quad 2 steps & 1 & 0/0/1 & $-1.6363$ & n/a & 4.51 & 1.00 \\
+  \bottomrule
+\end{tabular*}

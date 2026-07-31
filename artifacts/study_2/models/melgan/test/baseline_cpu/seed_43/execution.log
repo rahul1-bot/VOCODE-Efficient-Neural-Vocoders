@@ -1,0 +1,7 @@
+2026-07-21 06:53:30.096 | INFO | Study 2 execution run_id=s2_melgan_baseline_cpu_s43_20260721_0649 architecture=melgan seed=43 experiment_category=optimized_variant stage=test
+2026-07-21 06:53:30.097 | INFO | Hypothesis: The unmodified fp32 baseline on the fixed CPU allocation is the denominator for every CPU deployment claim.
+2026-07-21 07:01:23.574 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.025640
+2026-07-21 07:01:23.927 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":3.929849856,"total_macs":3929849856.0,"audio_seconds":1.0,"mel_frames":87,"unsupported_operators":["aten::_weight_norm","aten::add","aten::div","aten::leaky_relu","aten::pad","aten::tanh"],"reason":null}
+2026-07-21 08:31:30.832 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 08:31:30.852 | INFO | Optimized-variant row 1 written for melgan variant=baseline_cpu seed=43
+2026-07-21 08:31:30.853 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 5880.8s

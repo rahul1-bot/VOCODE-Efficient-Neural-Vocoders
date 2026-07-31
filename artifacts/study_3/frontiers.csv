@@ -1,0 +1,10 @@
+objective,order,architecture_name,display_name,cost,cost_unit,pesq_true_length
+b200_rtf_vs_pesq,1,vocos,Vocos,0.004725,real_time_factor,3.613685
+b200_rtf_vs_pesq,2,rfwave,RFWave,0.014810,real_time_factor,3.784551
+b200_rtf_vs_pesq,3,rndvoc,RNDVoC,0.055900,real_time_factor,3.895272
+parameters_vs_pesq,1,hifigan_v2,HiFi-GAN V2,928514,parameters,2.399747
+parameters_vs_pesq,2,hifigan_v3,HiFi-GAN V3,1464322,parameters,2.550108
+parameters_vs_pesq,3,rndvoc,RNDVoC,3572361,parameters,3.895272
+size_vs_pesq,1,hifigan_v2,HiFi-GAN V2,3.542000,megabytes,2.399747
+size_vs_pesq,2,hifigan_v3,HiFi-GAN V3,5.585945,megabytes,2.550108
+size_vs_pesq,3,rndvoc,RNDVoC,14.944496,megabytes,3.895272

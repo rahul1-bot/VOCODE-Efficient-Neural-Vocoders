@@ -1,0 +1,7 @@
+2026-07-21 16:59:30.671 | INFO | Study 2 execution run_id=s2_melgan_fp16_weights_s44_20260721_1443 architecture=melgan seed=44 experiment_category=optimized_variant stage=test
+2026-07-21 16:59:30.671 | INFO | Hypothesis: Half-precision weight storage halves the deployable footprint while its speed and quality response is measured per lane.
+2026-07-21 17:01:59.205 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000996
+2026-07-21 17:01:59.592 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":3.929849856,"total_macs":3929849856.0,"audio_seconds":1.0,"mel_frames":87,"unsupported_operators":["aten::_weight_norm","aten::add","aten::div","aten::leaky_relu","aten::pad","aten::tanh"],"reason":null}
+2026-07-21 17:40:10.413 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 17:40:10.468 | INFO | Optimized-variant row 1 written for melgan variant=fp16_weights seed=44
+2026-07-21 17:40:10.469 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 2439.9s

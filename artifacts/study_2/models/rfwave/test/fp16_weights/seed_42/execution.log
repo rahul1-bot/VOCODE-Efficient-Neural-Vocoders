@@ -1,0 +1,7 @@
+2026-07-21 15:44:47.199 | INFO | Study 2 execution run_id=s2_rfwave_fp16_weights_s42_20260721_1443 architecture=rfwave seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 15:44:47.200 | INFO | Hypothesis: Half-precision weight storage halves the deployable footprint while its speed and quality response is measured per lane.
+2026-07-21 15:47:37.928 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.004392
+2026-07-21 15:47:38.935 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":120.08491008,"total_macs":120084910080.0,"audio_seconds":1.0,"mel_frames":94,"unsupported_operators":["aten::add","aten::complex","aten::cos","aten::div","aten::embedding","aten::exp","aten::gelu","aten::imag","aten::istft","aten::linalg_vector_norm","aten::linspace","aten::mean","aten::mul","aten::pad","aten::pow","aten::randn","aten::real","aten::repeat_interleave","aten::sin","aten::sqrt","aten::stft","aten::sub","aten::tile","aten::unfold"],"reason":null}
+2026-07-21 16:01:31.214 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 16:01:31.225 | INFO | Optimized-variant row 1 written for rfwave variant=fp16_weights seed=42
+2026-07-21 16:01:31.225 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1004.0s

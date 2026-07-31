@@ -1,0 +1,7 @@
+2026-07-21 15:29:52.372 | INFO | Study 2 execution run_id=s2_vocos_pruned_50_s44_20260721_1443 architecture=vocos seed=44 experiment_category=optimized_variant stage=test
+2026-07-21 15:29:52.372 | INFO | Hypothesis: Fifty percent masked magnitude pruning is the central sparsity-quality response point without recovery.
+2026-07-21 15:30:06.313 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000254
+2026-07-21 15:30:06.448 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":1.270964224,"total_macs":1270964224.0,"audio_seconds":1.0,"mel_frames":94,"unsupported_operators":["aten::add","aten::cos","aten::exp","aten::gelu","aten::istft","aten::mul","aten::sin"],"reason":null}
+2026-07-21 15:44:07.123 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 15:44:07.136 | INFO | Optimized-variant row 1 written for vocos variant=pruned_50 seed=44
+2026-07-21 15:44:07.136 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 854.8s

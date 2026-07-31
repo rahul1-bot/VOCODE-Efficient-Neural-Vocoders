@@ -1,0 +1,7 @@
+2026-07-21 18:40:13.943 | INFO | Study 2 execution run_id=s2_vocos_pruned_70_s42_20260721_1443 architecture=vocos seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 18:40:13.943 | INFO | Hypothesis: Seventy percent masked magnitude pruning locates the steep end of the sparsity-quality response curve.
+2026-07-21 18:40:44.288 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000469
+2026-07-21 18:40:44.576 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":1.270964224,"total_macs":1270964224.0,"audio_seconds":1.0,"mel_frames":94,"unsupported_operators":["aten::add","aten::cos","aten::exp","aten::gelu","aten::istft","aten::mul","aten::sin"],"reason":null}
+2026-07-21 19:13:08.260 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 19:13:08.286 | INFO | Optimized-variant row 1 written for vocos variant=pruned_70 seed=42
+2026-07-21 19:13:08.286 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1974.4s

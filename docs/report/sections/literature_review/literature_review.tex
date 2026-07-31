@@ -1,0 +1,81 @@
+\section{Literature Review}
+\label{sec:literature-review}
+
+The literature separates into generation mechanisms, deployment
+transformations, and comparative evaluation; the unqualified label
+\emph{vocoder efficiency} conflates model structure, executable
+representation, and measurement protocol.
+
+\subsection{Generation Mechanisms}
+
+WaveNet factorizes waveform likelihood sample by sample
+\citep{oord2016wavenet}; LPCNet reduces learned synthesis through linear
+prediction but retains a recurrent excitation generator
+\citep{valin2019lpcnet}.  Adversarial vocoders instead use parallel
+generators.  MelGAN combines multi-scale discrimination with feature matching
+\citep{kumar2019melgan}; HiFi-GAN adds multi-period discrimination and
+quality-footprint variants \citep{kong2020hifigan}; BigVGAN introduces
+periodic activations and anti-aliased representations
+\citep{lee2023bigvgan}.  These mechanisms differ in critical-path
+parallelism, so capacity alone cannot predict latency.
+
+iSTFT vocoders perform learned prediction near the acoustic-frame rate and
+delegate waveform reconstruction to overlap-add; iSTFTNet established the
+pattern by replacing a time-domain generator's final upsampling stages
+with the inverse transform \citep{kaneko2022istftnet}.  APNet2 predicts amplitude
+and phase spectra \citep{du2023apnet2}; Vocos predicts complex coefficients
+with a constant-resolution ConvNeXt stack \citep{siuzdak2024vocos}; FreeV
+uses a pseudo-inverse mel prior \citep{lv2024freev}; and RNDVoC separates
+analytical range and learned null-space components \citep{li2025rndvoc}.
+RFWave instead integrates a rectified flow in a multi-band spectral
+representation \citep{liu2025rfwave}, making solver evaluations an explicit
+latency-quality control.
+
+VocosFormer is not a published architecture: the project inserts
+residual-convolution and self-attention components into a capacity-matched
+Vocos chassis, adopting them from the WavTokenizer decoder lineage
+\citep{ji2025wavtokenizer}; the codec is cited for component provenance
+only.
+
+\subsection{Deployment Transformations}
+
+Pruning changes both numerical weights and, only when supported, their
+storage and execution representation.  Classical train-prune-retrain work
+couples sparsity to compressed storage \citep{han2015pruning};
+dense zero masks establish tolerance to weight removal but not
+acceleration.
+Quantization likewise specifies weights, activations, scales, zero-points,
+covered operators, and backend \citep{jacob2018quantization}.  CPU dynamic
+quantization, ONNX QDQ graphs, and GPU weight-only quantization are therefore
+distinct treatments despite sharing an integer bit width.  Compilation
+changes the captured executable graph; graph breaks, specialization mode,
+operator support, and hardware determine whether TorchDynamo/TorchInductor
+produces a gain \citep{ansel2024pytorch2}.  The vocoder literature itself
+pursues efficiency through architecture and training: WaveRNN prunes its
+recurrent weights during training to reach real-time mobile-CPU synthesis
+\citep{kalchbrenner2018wavernn}, and WaveFM distills a flow-matching
+vocoder toward single-step synthesis \citep{luo2025wavefm}; the
+transformations above instead operate on fixed trained checkpoints.
+Reproducible deployment
+evidence must therefore state transformation scope, backend, operator
+coverage, and the paired pre-transformation measurement, not transformation
+names alone.
+
+\subsection{Comparative Evaluation}
+
+PESQ models perceived speech distortion \citep{rix2001pesq}, STOI estimates
+intelligibility \citep{taal2011stoi}, and UTMOS predicts mean opinion scores
+\citep{saeki2022utmos}; agreement among these proxies is still not a listening
+test.  Shared-protocol vocoder comparisons improve internal validity while
+remaining sensitive to implementation and conditioning choices
+\citep{govalkar2019comparison}, and VocBench trains and evaluates six
+vocoders in one shared environment with objective and subjective scoring
+\citep{albadawy2022vocbench}.  Deployment-focused work shows that
+batch speed does not establish low-latency streaming performance because
+causality, chunk size, lookahead, loading overhead, and hardware can reverse
+rankings \citep{yoneyama2025comparative}.  VOCODE does not claim streaming
+evaluation or listener scoring.  Relative to VocBench it contributes twelve configurations trained from
+scratch under recorded architecture-specific budgets, explicit checkpoint
+provenance, inclusion and exclusion registers for executable deployment
+artifacts, paired before-and-after measurements on one hardware profile,
+and constraint-aware selection.

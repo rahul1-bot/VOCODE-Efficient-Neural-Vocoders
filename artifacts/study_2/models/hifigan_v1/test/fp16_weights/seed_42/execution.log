@@ -1,0 +1,7 @@
+2026-07-21 14:46:47.250 | INFO | Study 2 execution run_id=s2_hifigan_v1_fp16_weights_s42_20260721_1443 architecture=hifigan_v1 seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 14:46:47.251 | INFO | Hypothesis: Half-precision weight storage halves the deployable footprint while its speed and quality response is measured per lane.
+2026-07-21 14:49:29.147 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.001221
+2026-07-21 14:49:29.488 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":26.406518784,"total_macs":26406518784.0,"audio_seconds":1.0,"mel_frames":86,"unsupported_operators":["aten::_weight_norm","aten::add","aten::div","aten::leaky_relu","aten::tanh"],"reason":null}
+2026-07-21 15:06:01.962 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 15:06:01.983 | INFO | Optimized-variant row 1 written for hifigan_v1 variant=fp16_weights seed=42
+2026-07-21 15:06:01.983 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1154.8s

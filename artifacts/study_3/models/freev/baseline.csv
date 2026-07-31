@@ -1,0 +1,2 @@
+architecture_name,display_name,family,parameters,size_megabytes,pesq_recorded,pesq_true_length,stoi_recorded,stoi_true_length,mel_error,multi_resolution_stft_error,mcd,utmos_strong,rtf_b200,rtf_m3_max,rtf_cpu,compute_fraction,classification,speed_quality_frontier,parameter_quality_frontier,size_quality_frontier
+freev,FreeV,frame-level Fourier,18220557,69.662464,3.339431,3.386266,0.969317,0.969480,0.174622,1.023562,8.324272,3.788606,0.007677,0.007522,0.015660,25 percent,matched,no,no,no

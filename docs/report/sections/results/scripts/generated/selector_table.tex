@@ -1,0 +1,10 @@
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrlrr@{}}
+  \toprule
+  Constraints $(q_{\min}, P_{\max}, D_{\max})$ & Lane & Feasible & Selected artifact $a_h^\star$ & RTF & PESQ \\
+  \midrule
+  (3.30, 20M, 70\,MB) & B200 & 28 & FP16-cast Vocos & 0.0003 & 3.611 \\
+  (3.30, 20M, 70\,MB) & CPU & 8 & Dynamic-INT8 Vocos & 0.0055 & 3.563 \\
+  (3.60, 15M, 55\,MB) & B200 & 10 & FP16-cast Vocos & 0.0003 & 3.611 \\
+  (3.60, 15M, 55\,MB) & CPU & 2 & Untransformed Vocos & 0.0067 & 3.610 \\
+  \bottomrule
+\end{tabular*}

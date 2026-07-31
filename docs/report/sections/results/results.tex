@@ -1,0 +1,200 @@
+\section{Results}
+\label{sec:results}
+
+Results cover the twelve Project-Trained Configurations and the 91 admitted
+model-variant groups of Figure~\ref{fig:deployment-admission}: 22 same-lane
+controls and 69 transformed groups, measured over 273 executions.  All
+quality values are the estimator of Eq.~\eqref{eq:quality-estimator} on the
+fixed adaptive LJSpeech evaluation set, and every claim concerns these executed
+states.  Except for static ONNX INT8
+(Section~\ref{sec:deployment-methods}), the three executions per group
+repeat inference from one frozen artifact, so their spread reflects
+execution variability rather than statistical uncertainty.
+
+\subsection{Baseline Quality, Efficiency, and Footprint}
+\label{sec:baseline-results}
+
+Addressing RQ1, Table~\ref{tab:baseline-surface} reports the complete
+twelve-configuration outcome surface, including the floor-level negative
+results, and
+Figure~\ref{fig:baseline-landscape} places every configuration on the
+quality-speed plane.  True-length PESQ ranked RNDVoC (3.895), RFWave
+(3.785), and Vocos (3.614) as the three strongest states, and STOI produced
+the same leading order; seven configurations reached true-length PESQ of at
+least 3.30.  UTMOS disagreed with the intrusive proxies: HiFi-GAN V1 was
+highest at 4.203, followed by Vocos (4.089) and BigVGAN-base (4.062); no
+configuration was uniformly best across the three proxies.
+
+\begin{table}[t]
+  \centering
+  \footnotesize
+  \renewcommand{\arraystretch}{1.02}
+  \setlength{\tabcolsep}{4pt}
+  \InputIfFileExists{sections/results/scripts/generated/baseline_table.tex}{}{%
+    \input{scripts/generated/baseline_table.tex}}
+  \caption{Baseline outcome surface for all twelve configurations: quality
+  proxies (higher is better), parameters (millions), serialized size (MB),
+  and warm real-time factors (lower is better).
+  $^{\mathsection}$retained comparative CPU record
+  (Section~\ref{sec:evaluation-protocols}), not a deployment-phase value;
+  $^{\dagger}$B200 speed-quality frontier;
+  $^{\ddagger}$parameter- and size-quality frontier;
+  $^{*}$LPCNet timing (27 utterances, one execution) is excluded from
+  strict frontiers.}
+  \label{tab:baseline-surface}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{baseline_landscape}
+  \caption{Twelve frozen baselines on the true-length PESQ versus B200
+  real-time-factor plane (Eq.~\eqref{eq:rtf}).  The legend identifies each
+  configuration, ordered by PESQ; marker shape encodes the generation
+  family (squares: frame-level Fourier; circles: time-domain GAN;
+  triangle: flow matching; diamond: hybrid attention; inverted triangle:
+  autoregressive).  Dark-edged markers are frontier members, connected by
+  the dashed nondominance chain; the dotted line marks real-time
+  synthesis.  LPCNet's single-execution timing is shown but excluded from
+  the strict frontier.  Each point is one row of the retained comparative
+  record.}
+  \label{fig:baseline-landscape}
+\end{figure}
+
+No checkpoint minimized all deployment costs.  Vocos had the lowest strict
+B200 RTF (0.00473), RNDVoC attained the highest PESQ at 11.8 times that
+RTF, and RFWave occupied the intermediate point (3.785 at 0.0148); the
+strict speed frontier comprised Vocos, RFWave, and RNDVoC.  HiFi-GAN V2 was the smallest baseline (0.93 million
+parameters, 3.54~MB) at PESQ 2.400; the parameter and size frontiers
+comprised HiFi-GAN V2, HiFi-GAN V3, and RNDVoC.  Two configurations
+produced floor-level negative results: MelGAN (PESQ 1.043 on both lanes)
+is consistent with budget-limited non-convergence, and LPCNet (1.052)
+lost free-running stability at 5.8\% of its reference recipe while its
+PyTorch timing omits the author's optimized sparse C path; both remain
+full members of the twelve-model cohort.
+
+The matched VocosFormer state did not improve on its Vocos control: it added
+247{,}040 parameters ($+1.83\%$), reduced true-length PESQ by 0.101 and STOI
+by 0.0035, and increased B200 RTF $2.58\times$.  Under padded batch-16
+evaluation the same checkpoint measured PESQ 2.480 against 3.512 at true
+length, a padding-sensitivity failure consistent with contamination through
+unmasked global attention rather than intrinsic synthesis collapse; this
+one-trajectory comparison is a configuration-level observation, not an
+average attention effect.
+
+\subsection{Deployment Transformation Effects}
+\label{sec:intervention-results}
+
+Addressing RQ2, the decision rule of Eq.~\eqref{eq:decision-rule} labeled
+the 69 transformed groups 19 beneficial, 18 inconclusive, and 32 harmful.
+Table~\ref{tab:family-effects} reports the seven intervention families and
+their fourteen variants with per-variant label composition, median
+same-lane effects, and $\Delta$PESQ ranges; the 29-row exclusion
+register documents the 88 attempts producing no admitted group.  FP16
+weight casting was the most consistently favorable family: eight of
+ten groups were beneficial at half serialized size, with RFWave and
+HiFi-GAN V3 reaching $1.955\times$ and $1.874\times$ speedups at preserved
+PESQ.
+
+\begin{table}[t]
+  \centering
+  \footnotesize
+  \renewcommand{\arraystretch}{1.02}
+  \InputIfFileExists{sections/results/scripts/generated/variant_table.tex}{}{%
+    \input{scripts/generated/variant_table.tex}}
+  \caption{Deployment intervention outcomes over the 69 admitted groups,
+  by family and variant: admitted count, beneficial/inconclusive/harmful
+  composition under Eq.~\eqref{eq:decision-rule}, median same-lane
+  $\Delta$PESQ, speedup $S_a$, and size ratio $Z_a$
+  (Eq.~\eqref{eq:deployment-effects}), and the $\Delta$PESQ range across
+  the variant's admitted groups; single-group variants report their one
+  contrast.}
+  \label{tab:family-effects}
+\end{table}
+
+Compilation was mode specific: default-mode compilation preserved PESQ in
+all eleven groups at speedups from $0.14\times$ to $1.403\times$
+(HiFi-GAN V3), whereas the reduce-overhead mode was harmful for three of
+four groups (speedups 0.34 to 0.41) and beneficial only for RFWave
+($1.361\times$).  ONNX FP32
+accelerated HiFi-GAN V2 by $2.071\times$ at $\Delta$PESQ $-0.00013$
+(fixed-set 95\% interval $[-0.00036, 0.00010]$) yet split 1/2/1 (B/I/H)
+overall.  Dynamic INT8 diverged: beneficial for APNet2 and
+Vocos, harmful for FreeV ($-0.123$) and RFWave ($-0.648$).  Weight-only
+INT8 preserved PESQ in all four groups but slowed FreeV ($0.851\times$) and
+VocosFormer ($0.617\times$).
+
+Static ONNX INT8 was harmful in three of four groups with median PESQ loss
+0.770 at median size ratio 0.265.  Because each execution recalibrates on
+its own shuffled loader batches, its per-execution PESQ disperses where all
+other variants repeat exactly: HiFi-GAN V1 measured 2.003, 2.053, and
+1.910 against its execution-invariant ONNX FP32 value of 3.317.  Dense magnitude
+masks were harmful in 4/4, 10/11, and 4/4 groups at 30/50/70\% sparsity
+(median $\Delta$PESQ $-1.03$, $-1.06$, and $-2.27$); the single non-harmful
+group is floor-censored MelGAN.  Recovery returned four of five admitted
+50\% groups to within 0.05 PESQ of their controls (BigVGAN-base moved
+from $-1.149$ to $+0.017$) but left Vocos harmful ($-0.475$); lacking
+the dense-continuation control, the recovery arm supports no causal claim.  RFWave
+solver reduction traded monotonically: speedups of 1.201, 2.200, and 4.509
+for PESQ losses of 0.046, 0.369, and 1.636 at 8, 4, and 2 steps.
+
+Deployment-phase RTFs follow Eq.~\eqref{eq:rtf} with $J_a{=}3$, not
+comparable with Table~\ref{tab:baseline-surface}'s single-pass B200 or
+comparative CPU baselines (Section~\ref{sec:evaluation-protocols}).  Across the 273 executions, p50 spanned
+1.21 to 3{,}909.35~ms, p95 1.96 to 6{,}138.02~ms, process RSS 6{,}754 to
+16{,}991~MiB, and the 24 ONNX session builds spanned 0.0116 to 0.1327~s.  The
+deployment costs need not move together: the HiFi-GAN V2 ONNX FP32
+artifact halves median synthesis time on CPU while raising process RSS
+above its control.  Of the 69 utterance-paired PESQ contrasts, 34 fixed-set intervals were
+entirely negative, two entirely positive, and 33 crossed zero.  Despite
+non-normality (113 contrasts with absolute skewness above one, 181 with
+excess kurtosis above three), bootstrap and Student $t$ signs agreed on
+482 of 483 contrasts, an internal agreement diagnostic, not external
+validity.
+
+\subsection{Sensitivity of the Decision Taxonomy and Constraint-Aware
+Selection}
+\label{sec:selection-results}
+
+Across the $3^5=243$ threshold profiles of
+Section~\ref{sec:evaluation-protocols}, the beneficial,
+harmful, and inconclusive totals ranged over 12 to 24, 29 to 34, and 12 to
+27; median and minimum agreement with the default taxonomy were 91.3\%
+and 82.6\%.  Stability stratifies by rule structure: 27 of the 28 rows
+governed by the dense-mask and MelGAN overrides never changed label
+(96.4\%), whereas 25 of the 41 threshold-governed rows never changed
+(61.0\%), so the aggregate stability (52 of 69 rows unchanged) partly
+reflects deterministic rule structure rather than threshold insensitivity.
+
+Frontier membership depended on the proxy: STOI reproduced the
+PESQ frontiers of Section~\ref{sec:baseline-results}, while UTMOS yielded
+Vocos then HiFi-GAN V1 against B200 RTF and, against parameters, HiFi-GAN
+V2, RNDVoC, Vocos, and HiFi-GAN V1, so proxy choice alters which states appear
+efficient.
+
+\begin{table}[t]
+  \centering
+  \footnotesize
+  \renewcommand{\arraystretch}{1.02}
+  \InputIfFileExists{sections/results/scripts/generated/selector_table.tex}{}{%
+    \input{scripts/generated/selector_table.tex}}
+  \caption{Constraint-aware selection (Eq.~\eqref{eq:constrained-selection})
+  over all admitted artifacts per lane, with same-lane controls:
+  feasible-set size and RTF-minimizing artifact per constraint vector
+  (deployment-phase PESQ floor, parameter ceiling, size ceiling).  RTF
+  values follow the deployment-phase three-repetition estimand (not
+  comparable with Table~\ref{tab:baseline-surface}).}
+  \label{tab:joint-selector}
+\end{table}
+
+Answering RQ3, Table~\ref{tab:joint-selector} instantiates the selector of
+Eq.~\eqref{eq:constrained-selection} over all admitted artifacts of each
+lane, using deployment-phase quality, RTF, deployable size, and logical
+parameter counts consistently.  Under the moderate operating point
+$(q_{\min}{=}3.30, P_{\max}{=}20\mathrm{M}, D_{\max}{=}70~\mathrm{MB})$,
+28 B200 artifacts and eight CPU artifacts remain feasible, and the selector
+chooses FP16-cast Vocos on B200 and dynamic-INT8 Vocos on CPU; tightening
+to $(3.60, 15\mathrm{M}, 55~\mathrm{MB})$ leaves ten and two feasible
+artifacts, selecting FP16-cast Vocos on B200 and the untransformed Vocos
+control on CPU.  The feasible set remains nonempty on the B200 lane for
+quality floors up to RNDVoC's FP16 artifact at 3.894; above that value no
+admitted artifact qualifies.

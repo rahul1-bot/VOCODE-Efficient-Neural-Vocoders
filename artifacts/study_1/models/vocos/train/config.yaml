@@ -1,0 +1,119 @@
+schema_version: 1
+experiment:
+  id: vocos_full_bf16bs32_20260704_0625
+  study: 1
+  stage: train
+  architecture: vocos
+  variant: charactr_mel_24khz
+  dataset: LJSpeech-1.1
+  seed: 1234
+  seed_role: training
+  initialization: random
+  status: completed
+  hypothesis: Vocos trained from random initialization can reach its registered author-checkpoint
+    quality threshold within the Study 1 gate-one budget.
+  controlled_factor: vocos_architecture
+data:
+  source_sample_rate: 22050
+  model_sample_rate: 24000
+  partition_strategy: ordered_identifier_holdout
+  train_utterances: 12475
+  validation_utterances: 100
+  test_utterances: 525
+  training_shuffle: true
+  validation_shuffle: false
+  test_shuffle: false
+  training_segment_size: 16384
+  training_batch_size: 32
+  validation_batch_size: 1
+  num_workers: 4
+  persistent_workers: true
+  prefetch_factor: 4
+  pin_memory: true
+  peak_normalization_enabled: false
+  training_random_peak_gain_range_db:
+  - -6.0
+  - -1.0
+model:
+  input_mel_channels: 100
+  backbone: convnext
+  hidden_dimension: 512
+  intermediate_dimension: 1536
+  block_count: 8
+  depthwise_kernel_size: 7
+  layer_scale_initial_value: 0.125
+  layer_norm_epsilon: 1.0e-06
+  head: istft
+  istft_n_fft: 1024
+  istft_hop_length: 256
+discriminators:
+  multi_period_periods:
+  - 2
+  - 3
+  - 5
+  - 7
+  - 11
+  multi_resolution_fft_sizes:
+  - 2048
+  - 1024
+  - 512
+  multi_resolution_subbands: 5
+  multi_resolution_channels: 32
+optimization:
+  generator_optimizer: AdamW
+  discriminator_optimizer: AdamW
+  learning_rate: 0.0005
+  adam_betas:
+  - 0.8
+  - 0.9
+  generator_scheduler: cosine
+  discriminator_scheduler: cosine
+  scheduler_horizon_steps: 249600
+  scheduler_warmup_steps: 0
+  maximum_epochs: 320
+  final_global_step: 124800
+loss:
+  adversarial_family: clamped_hinge
+  mel_weight: 45.0
+  multi_resolution_adversarial_weight: 0.1
+  multi_resolution_feature_matching_weight: 0.1
+mel_protocol:
+  sample_rate: 24000
+  n_fft: 1024
+  hop_length: 256
+  win_length: 1024
+  n_mels: 100
+  fmin: 0.0
+  fmax: 12000.0
+  mel_scale: htk
+  center: true
+  pad_mode: reflect
+  power: 1.0
+  normalize_mel_basis: false
+  log_clamp_min: 1.0e-07
+  log_base: natural
+  manual_reflect_padding: false
+execution:
+  accelerator: cuda
+  hardware: nvidia_l40s
+  precision: bf16-mixed
+  log_interval_steps: 5
+  validation_interval_steps: 1000
+  checkpoint_interval_steps: 5000
+  runtime_profiling_enabled: true
+  runtime_profile_interval_steps: 50
+  elapsed_seconds: 17430.589702433
+checkpoint_selection:
+  monitor: val_loss
+  mode: min
+  selected_role: evaluated_durable_boundary
+  selected_epoch: 307
+  selected_global_step: 120000
+  selected_validation_loss: 7.209135136604309
+  validation_best_saved_epoch: 307
+  validation_best_saved_global_step: 120000
+  validation_best_saved_loss: 7.209135136604309
+  global_validation_minimum_step: 124000
+  global_validation_minimum_value: 7.124686107635498
+  global_validation_minimum_checkpoint_written: false
+  evaluated_and_validation_best_model_state_equivalent: true

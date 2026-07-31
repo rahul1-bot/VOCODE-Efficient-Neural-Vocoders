@@ -1,0 +1,7 @@
+2026-07-21 22:14:30.301 | INFO | Study 2 execution run_id=s2_melgan_pruned_50_recovered_s44_20260721_1443r architecture=melgan seed=44 experiment_category=optimized_variant stage=test
+2026-07-21 22:14:30.302 | INFO | Hypothesis: Recovery fine-tuning after fifty percent pruning restores quality relative to the masked baseline.
+2026-07-21 22:15:35.203 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000554
+2026-07-21 22:15:35.379 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":3.929849856,"total_macs":3929849856.0,"audio_seconds":1.0,"mel_frames":87,"unsupported_operators":["aten::_weight_norm","aten::add","aten::div","aten::leaky_relu","aten::pad","aten::tanh"],"reason":null}
+2026-07-21 22:32:14.534 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 22:32:14.547 | INFO | Optimized-variant row 1 written for melgan variant=pruned_50_recovered seed=44
+2026-07-21 22:32:14.547 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1064.3s

@@ -1,0 +1,7 @@
+2026-07-22 03:55:56.050 | INFO | Study 2 execution run_id=s2_vocosformer_baseline_b200_s44_20260721_1918 architecture=vocosformer seed=44 experiment_category=optimized_variant stage=test
+2026-07-22 03:55:56.050 | INFO | Hypothesis: Identity evaluation under the aligned runtime measures the same-stack B200 denominator for aligned-runtime variants.
+2026-07-22 03:56:41.277 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000293
+2026-07-22 03:56:41.507 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":1.30475008,"total_macs":1304750080.0,"audio_seconds":1.0,"mel_frames":94,"unsupported_operators":["aten::add","aten::cos","aten::exp","aten::gelu","aten::istft","aten::mul","aten::sigmoid","aten::sin","aten::softmax"],"reason":null}
+2026-07-22 04:11:41.241 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-22 04:11:41.254 | INFO | Optimized-variant row 1 written for vocosformer variant=baseline_b200 seed=44
+2026-07-22 04:11:41.254 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 945.2s

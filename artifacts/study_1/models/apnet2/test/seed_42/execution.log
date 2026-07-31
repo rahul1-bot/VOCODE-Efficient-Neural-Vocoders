@@ -1,0 +1,4 @@
+2026-07-04 11:04:43.634 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:96 - Experiment vocode_checkpoint01_training_reproduction run_id=apnet2_gate1_test_20260704_1305 architecture=apnet2 seed=42 evidence_category=project_trained_reproduction stage=test
+2026-07-04 11:04:43.634 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:101 - Hypothesis: Gate 1 APNet2 stop-rule evaluation measures PESQ against threshold 3.18 from the published-checkpoint anchor 3.4227.
+2026-07-04 11:05:22.775 | INFO     | vocode.metrics.rtf:on_predict_end:98 - RealTimeFactor over 520 utterances: 0.008689
+2026-07-04 11:07:18.467 | INFO     | vocode.trainers.scratch_reproduction_runner:_finalize_experiment_log:132 - Experiment vocode_checkpoint01_training_reproduction finished. Rows written: 1. Elapsed: 154.8s

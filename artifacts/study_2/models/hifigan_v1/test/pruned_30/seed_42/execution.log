@@ -1,0 +1,7 @@
+2026-07-21 20:48:43.892 | INFO | Study 2 execution run_id=s2_hifigan_v1_pruned_30_s42_20260721_1443 architecture=hifigan_v1 seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 20:48:43.892 | INFO | Hypothesis: Thirty percent masked magnitude pruning locates the shallow end of the sparsity-quality response curve.
+2026-07-21 20:50:20.942 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000914
+2026-07-21 20:50:21.259 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":26.406518784,"total_macs":26406518784.0,"audio_seconds":1.0,"mel_frames":86,"unsupported_operators":["aten::_weight_norm","aten::add","aten::div","aten::leaky_relu","aten::tanh"],"reason":null}
+2026-07-21 21:03:32.625 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 21:03:32.638 | INFO | Optimized-variant row 1 written for hifigan_v1 variant=pruned_30 seed=42
+2026-07-21 21:03:32.638 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 888.8s

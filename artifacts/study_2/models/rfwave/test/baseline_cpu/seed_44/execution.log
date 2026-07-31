@@ -1,0 +1,7 @@
+2026-07-21 08:38:12.391 | INFO | Study 2 execution run_id=s2_rfwave_baseline_cpu_s44_20260721_0649 architecture=rfwave seed=44 experiment_category=optimized_variant stage=test
+2026-07-21 08:38:12.392 | INFO | Hypothesis: The unmodified fp32 baseline on the fixed CPU allocation is the denominator for every CPU deployment claim.
+2026-07-21 10:50:47.189 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.577137
+2026-07-21 10:50:48.949 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":120.08491008,"total_macs":120084910080.0,"audio_seconds":1.0,"mel_frames":94,"unsupported_operators":["aten::add","aten::complex","aten::cos","aten::div","aten::embedding","aten::exp","aten::gelu","aten::imag","aten::istft","aten::linalg_vector_norm","aten::linspace","aten::mean","aten::mul","aten::pad","aten::pow","aten::randn","aten::real","aten::repeat_interleave","aten::sin","aten::sqrt","aten::stft","aten::sub","aten::tile","aten::unfold"],"reason":null}
+2026-07-21 13:04:35.594 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 13:04:35.614 | INFO | Optimized-variant row 1 written for rfwave variant=baseline_cpu seed=44
+2026-07-21 13:04:35.614 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 15983.2s

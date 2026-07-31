@@ -1,0 +1,9 @@
+2026-07-21 08:43:23.575 | INFO | Study 2 execution run_id=s2_hifigan_v1_onnx_fp32_s43_20260721_0649 architecture=hifigan_v1 seed=43 experiment_category=optimized_variant stage=test
+2026-07-21 08:43:23.575 | INFO | Hypothesis: The exported ONNX Runtime graph is the same-lane denominator for the static INT8 deployment claim.
+2026-07-21 08:44:07.008 | INFO | Captured 48 calibration mels from the training partition.
+2026-07-21 08:44:08.329 | INFO | Deployed hifigan_v1_fp32.onnx (55753241 bytes) on providers ('CPUExecutionProvider',)
+2026-07-21 09:06:44.899 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.097986
+2026-07-21 09:06:45.042 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":0.0,"total_macs":0.0,"audio_seconds":1.0,"mel_frames":86,"unsupported_operators":["aten::lift_fresh"],"reason":null}
+2026-07-21 10:34:21.505 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 10:34:21.528 | INFO | Optimized-variant row 1 written for hifigan_v1 variant=onnx_fp32 seed=43
+2026-07-21 10:34:21.529 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 6658.0s

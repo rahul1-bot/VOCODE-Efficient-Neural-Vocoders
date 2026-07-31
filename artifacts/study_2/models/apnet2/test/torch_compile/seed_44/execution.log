@@ -1,0 +1,7 @@
+2026-07-21 23:39:19.361 | INFO | Study 2 execution run_id=s2_apnet2_torch_compile_s44_20260721_1918 architecture=apnet2 seed=44 experiment_category=optimized_variant stage=test
+2026-07-21 23:39:19.361 | INFO | Hypothesis: Default-mode compilation changes latency without changing quality beyond seed spread.
+2026-07-21 23:40:17.001 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000428
+2026-07-21 23:40:17.090 | INFO | macs_profile={"status":"failed","method":"fvcore_jit_trace","giga_macs_per_audio_second":null,"total_macs":null,"audio_seconds":null,"mel_frames":null,"unsupported_operators":[],"reason":"RuntimeError: Detected that you are using FX to torch.jit.trace a dynamo-optimized function. This is not supported at the moment."}
+2026-07-21 23:56:43.452 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 23:56:43.464 | INFO | Optimized-variant row 1 written for apnet2 variant=torch_compile seed=44
+2026-07-21 23:56:43.464 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1044.1s

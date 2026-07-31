@@ -1,0 +1,92 @@
+\documentclass[twoside,11pt]{article}
+
+\usepackage[preprint]{jmlr2e}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{lastpage}
+\usepackage{microtype}
+\usepackage{tabularx}
+
+\graphicspath{%
+  {sections/methodology/scripts/generated/}%
+  {sections/results/scripts/generated/}%
+}
+
+\hypersetup{
+  hidelinks,
+  pdftitle={VOCODE: A Systematic Evaluation of Quality, Efficiency, and Deployment Trade-offs in Neural Vocoders},
+  pdfauthor={Rahul Sawhney},
+  pdfsubject={Neural vocoder quality, efficiency, and deployment optimization},
+  pdfkeywords={neural vocoder, speech synthesis, model efficiency, real-time factor, deployment optimization}
+}
+
+\jmlrheading
+  {1}
+  {2026}
+  {1-\pageref{LastPage}}
+  {7/26}
+  {}
+  {vocode-course-project}
+  {Rahul Sawhney}
+\ShortHeadings
+  {Quality, Efficiency, and Deployment Trade-offs in Neural Vocoders}
+  {Sawhney}
+\firstpageno{1}
+
+\begin{document}
+
+\title{VOCODE: A Systematic Evaluation of Quality, Efficiency, and
+Deployment Trade-offs in Neural Vocoders}
+
+\author{\name Rahul Sawhney \email rahul.sawhney@fau.de \\
+  \addr Department Artificial Intelligence in Biomedical Engineering\\
+  Friedrich-Alexander-Universit\"at Erlangen-N\"urnberg\\
+  N\"urnberger Stra\ss e 74, 91052 Erlangen, Germany}
+
+\maketitle
+
+\begin{abstract}%
+Neural vocoders differ sharply in quality, speed, and footprint, yet
+published results resist comparison: corpus, training budget,
+implementation, evaluator, and hardware vary across papers.  VOCODE
+benchmarks twelve vocoders spanning autoregressive, GAN-based,
+iSTFT-based, flow-matching, and attention-augmented designs, trained from
+scratch on LJSpeech with architecture-native objectives and identical
+data splits.  Evaluation is unified: ten quality metrics (PESQ, STOI,
+UTMOS, spectral and pitch distances) plus real-time factor, latency,
+parameters, and size.  Deployment interventions yield 69 transformed groups paired with 22
+same-hardware baselines (273 executions), each judged under an explicit
+decision rule: 19 beneficial, 32 harmful, 18 inconclusive.  No vocoder is Pareto-optimal across quality, latency, and
+footprint: the speed-quality frontier is Vocos, RFWave, and RNDVoC.  Gains
+were architecture-dependent: FP16 halved storage at preserved PESQ in
+eight of ten groups, quality-preserving speedups reached $2.07\times$
+(ONNX) and $1.40\times$ (compilation), and RFWave at eight ODE steps
+gained
+$1.20\times$ within 0.05 PESQ.  Masked pruning was harmful in 18 of 19;
+static INT8 compressed models near-fourfold at material quality loss.  At
+moderate quality, parameter, and storage budgets, selection chose
+FP16-cast Vocos on GPU and dynamic-INT8 Vocos on CPU.  With an adaptive
+evaluation set, unreplicated training, and no listening test, VOCODE
+supports conditional, auditable comparisons, not a causal architecture
+ranking.
+\end{abstract}
+
+\begin{keywords}
+neural vocoder, speech synthesis, model efficiency, real-time factor,
+quantization, pruning, Pareto analysis, reproducibility
+\end{keywords}
+
+\input{sections/introduction/introduction}
+\input{sections/literature_review/literature_review}
+\input{sections/methodology/methodology}
+\input{sections/results/results}
+\input{sections/discussion/discussion}
+\input{sections/conclusion/conclusion}
+
+{\footnotesize
+\setlength{\bibsep}{0pt}
+\bibliography{assets/research_papers/references}
+}
+
+\end{document}

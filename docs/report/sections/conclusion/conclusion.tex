@@ -1,0 +1,27 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+Under one corpus, one evaluator, and one measurement protocol, no universal
+winner emerged among the twelve finite-budget states (RQ1): RNDVoC
+led PESQ and STOI, HiFi-GAN V1 led UTMOS, Vocos led RTF on both lanes,
+HiFi-GAN V2 led footprint, and RFWave held the intermediate point.  Deployment transformations were conditional on architecture, operator
+graph, and backend (RQ2): FP16 casting was most consistently beneficial,
+quantization and compilation were heterogeneous, static ONNX INT8 coupled
+large size reductions to material quality loss, dense masks measured
+tolerance to zeroed weights rather than sparse execution, and RFWave
+solver reduction gave the one monotone speed-quality control.  At the moderate quality, parameter, and storage
+vector the artifact-level selector (RQ3) chose FP16-cast Vocos on B200
+and dynamic-INT8 Vocos on CPU; the tighter vector selected untransformed
+Vocos on CPU, and RNDVoC stayed the highest-PESQ feasible state at both
+vectors, never the RTF-minimizing choice.  These conclusions are bounded
+by proxy metrics, an adaptive single-speaker evaluation set, single
+trajectories, and non-host-paired timing.
+
+\paragraph{Availability.}
+The source code of both software packages, the complete experimental
+log, and the admission, exclusion, and result registers under
+\texttt{artifacts/} are public at
+\url{https://github.com/rahul1-bot/VOCODE-Efficient-Neural-Vocoders}; the
+graded state is the latest commit on or before 31 July 2026.  LJSpeech is
+public under its released license, and resolved run configurations record
+the environment.

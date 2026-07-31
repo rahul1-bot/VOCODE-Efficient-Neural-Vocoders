@@ -1,0 +1,102 @@
+schema_version: 1
+experiment:
+  id: rfwave_full_bf16bs64_20260707_2110
+  study: 1
+  stage: train
+  architecture: rfwave
+  variant: project_trained_bfs18_24khz_ljspeech
+  evidence_class: published_architecture_reimplementation
+  dataset: LJSpeech-1.1
+  seed: 1234
+  seed_role: training
+  initialization: random
+  status: completed
+  hypothesis: A project reimplementation of the published RFWave architecture trained
+    from random initialization can reach the registered strong quality band.
+  controlled_factor: rectified_flow_architecture
+data:
+  source_sample_rate: 22050
+  model_sample_rate: 24000
+  partition_strategy: ordered_identifier_holdout
+  train_utterances: 12475
+  validation_utterances: 100
+  test_utterances: 525
+  training_segment_size: 32512
+  training_batch_size: 64
+  validation_batch_size: 1
+  num_workers: 4
+  persistent_workers: true
+  prefetch_factor: 4
+  pin_memory: true
+  training_shuffle: true
+  validation_shuffle: false
+  test_shuffle: false
+  peak_normalization_enabled: false
+model:
+  input_mel_channels: 100
+  output_channels: 160
+  hidden_dimension: 512
+  intermediate_dimension: 1536
+  layer_count: 8
+  band_count: 8
+  n_fft: 1024
+  hop_length: 256
+  left_overlap: 8
+  right_overlap: 8
+  fourier_start_exponent: 6
+  fourier_stop_exponent: 8
+  time_embedding_scale: 1000.0
+  sampling_step_count: 10
+  pqmf_taps: 124
+  pqmf_cutoff_ratio: 0.071
+  pqmf_kaiser_beta: 9.0
+optimization:
+  optimizer: AdamW
+  learning_rate: 0.0002
+  adam_betas:
+  - 0.9
+  - 0.999
+  scheduler_warmup_steps: 20000
+  scheduler_horizon_steps: 125000
+  gradient_clip_norm: 5.0
+  maximum_epochs: 641
+  final_global_step: 124995
+loss:
+  auxiliary_weight: 0.01
+  log_epsilon: 1.0e-08
+mel_protocol:
+  sample_rate: 24000
+  n_fft: 1024
+  hop_length: 256
+  win_length: 1024
+  n_mels: 100
+  fmin: 0.0
+  fmax: 12000.0
+  mel_scale: htk
+  center: true
+  pad_mode: reflect
+  power: 1.0
+  normalize_mel_basis: false
+  log_clamp_min: 1.0e-07
+  log_base: natural
+  manual_reflect_padding: false
+execution:
+  accelerator: cuda
+  hardware: nvidia_a100_80gb
+  precision: bf16-mixed
+  log_interval_steps: 10
+  validation_interval_steps: 1000
+  checkpoint_interval_steps: 5000
+  runtime_profiling_enabled: true
+  runtime_profile_interval_steps: 50
+  elapsed_seconds: 27061.111347581
+checkpoint_selection:
+  monitor: val_loss
+  mode: min
+  selected_role: evaluated_durable_boundary
+  selected_epoch: 615
+  selected_global_step: 120000
+  selected_validation_loss: 0.9941832804679871
+  validation_best_saved_epoch: 487
+  validation_best_saved_global_step: 95000
+  validation_best_saved_loss: 0.9500672543048858

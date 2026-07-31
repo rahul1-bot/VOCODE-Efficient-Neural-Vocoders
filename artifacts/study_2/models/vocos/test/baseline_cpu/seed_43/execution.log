@@ -1,0 +1,7 @@
+2026-07-21 06:54:01.707 | INFO | Study 2 execution run_id=s2_vocos_baseline_cpu_s43_20260721_0649 architecture=vocos seed=43 experiment_category=optimized_variant stage=test
+2026-07-21 06:54:01.708 | INFO | Hypothesis: The unmodified fp32 baseline on the fixed CPU allocation is the denominator for every CPU deployment claim.
+2026-07-21 06:55:51.106 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.006606
+2026-07-21 06:55:51.291 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":1.270964224,"total_macs":1270964224.0,"audio_seconds":1.0,"mel_frames":94,"unsupported_operators":["aten::add","aten::cos","aten::exp","aten::gelu","aten::istft","aten::mul","aten::sin"],"reason":null}
+2026-07-21 08:22:00.313 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 08:22:00.333 | INFO | Optimized-variant row 1 written for vocos variant=baseline_cpu seed=43
+2026-07-21 08:22:00.334 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 5278.7s

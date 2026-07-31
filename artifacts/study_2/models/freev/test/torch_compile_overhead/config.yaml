@@ -1,0 +1,14 @@
+schema_version: 1
+study: 2
+architecture: freev
+variant: torch_compile_overhead
+lane: b200
+same_lane_baseline: baseline_b200
+intervention:
+  technique: torch_compile
+  compiled_scope: network
+  mode: reduce-overhead
+  backend: inductor
+  fullgraph: false
+runtime_setup: {}
+measurement_note: Reduce-overhead compiled execution; weights unchanged; second registered compiler configuration.

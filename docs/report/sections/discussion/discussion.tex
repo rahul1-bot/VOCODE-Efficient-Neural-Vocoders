@@ -1,0 +1,59 @@
+\section{Discussion}
+\label{sec:discussion}
+
+RQ1 has no scalar answer.  RNDVoC's range-null
+decomposition produced the strongest intrusive-proxy state at modest
+parameter count, Vocos converted frame-level spectral prediction into the
+lowest RTF on both lanes, and RFWave traded iterative solver work for an
+intermediate point; the small HiFi-GAN variants minimized footprint below
+the leading quality band.  Generation granularity and analytical output
+structure tracked the observed orderings better than parameter count
+alone, a mechanism-consistent reading, not causal identification, under
+native budgets and single trajectories.  The choice of quality proxy is itself a deployment decision: PESQ
+and STOI selected RNDVoC while UTMOS selected HiFi-GAN V1 and reshaped
+both cost frontiers; proxy agreement still would not constitute listener
+preference.  RQ3 inherited this conditionality: the selected artifact
+changed with lane and constraint vector.
+
+RQ2 resolved conditionally on operator graph, backend, and
+runtime.  FP16 casting halved storage almost uniformly, consistent with its
+arithmetic-format origin \citep{micikevicius2018mixedprecision}, yet its
+latency effect spanned $0.554\times$ to $1.955\times$; compilation and ONNX
+gains depended on graph lowering and kernel choice
+\citep{ansel2024pytorch2}; and INT8 coverage was necessary but
+insufficient: transformed paths could shrink bytes yet regress speed
+\citep{jacob2018quantization}.  Static ONNX INT8 also exposed calibration
+dependence: execution-seeded recalibration varied the quantized artifact
+by 0.14 PESQ for HiFi-GAN V1; deployed integer pipelines should treat
+the calibration set as part of the artifact's identity.  With hosts unpaired, large contrasts are more
+credible than marginal crossings, and the taxonomy remains an exploratory
+summary of continuous effects.
+
+Dense masks and solver reduction manipulated different objects.  Masks
+measured tolerance to zeroed weights, not sparse deployment
+\citep{han2015pruning}; recovery showed quality is relearnable,
+BigVGAN-base regaining 1.17 PESQ, but the missing dense-continuation
+control confounds recovery with added training.  RFWave's step ladder
+changed the iteration count and produced the matrix's only smooth,
+monotone speed-quality curve, making eight steps a defensible choice.  VocosFormer supports a bounded mechanism hypothesis:
+unmasked global attention can spread padded-frame contamination, matching
+the padded-to-true-length gap; true-length evaluation removed most of
+the quality gap, none of the latency penalty, and attribution requires
+masked- and local-attention controls.
+
+In this cohort, post hoc compression split sharply: FP16 held PESQ at
+half size in eight of ten groups, while dense masking harmed 18 of 19
+groups and static ONNX INT8 three of four; the larger efficiency
+separations were architectural, consistent with the architecture-first
+emphasis of recent designs
+\citep{siuzdak2024vocos,liu2025rfwave,lee2025periodwave,oh2026comvo}.
+
+All intervals are fixed-set descriptive quantities conditional on the
+adaptive single-speaker suffix, not an untouched test set; no
+multiplicity correction, training replication, listening study, or
+external evaluation exists, and warm timing omits streaming, queuing,
+cold start, and host identity.  The priority follow-up is an untouched
+multi-speaker test set with blinded listening and replicated
+trajectories, then randomized host-paired timing with retained raw
+repetitions, with sparse kernels, quantization-aware training,
+pinned-calibration INT8, and attention masking in those controls.

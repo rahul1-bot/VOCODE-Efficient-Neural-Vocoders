@@ -1,0 +1,7 @@
+2026-07-21 08:56:18.832 | INFO | Study 2 execution run_id=s2_apnet2_baseline_cpu_s44_20260721_0649 architecture=apnet2 seed=44 experiment_category=optimized_variant stage=test
+2026-07-21 08:56:18.833 | INFO | Hypothesis: The unmodified fp32 baseline on the fixed CPU allocation is the denominator for every CPU deployment claim.
+2026-07-21 09:00:10.940 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.015091
+2026-07-21 09:00:11.206 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":2.728631808,"total_macs":2728631808.0,"audio_seconds":1.0,"mel_frames":87,"unsupported_operators":["aten::add","aten::atan2","aten::complex","aten::cos","aten::div","aten::exp","aten::gelu","aten::hann_window","aten::istft","aten::linalg_vector_norm","aten::mean","aten::mul","aten::sin"],"reason":null}
+2026-07-21 10:21:51.555 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 10:21:51.578 | INFO | Optimized-variant row 1 written for apnet2 variant=baseline_cpu seed=44
+2026-07-21 10:21:51.578 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 5132.8s

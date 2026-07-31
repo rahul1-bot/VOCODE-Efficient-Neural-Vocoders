@@ -1,0 +1,7 @@
+2026-07-22 06:03:59.636 | INFO | Study 2 execution run_id=s2_freev_int8_weight_only_s42_20260722_0728 architecture=freev seed=42 experiment_category=optimized_variant stage=test
+2026-07-22 06:03:59.636 | INFO | Hypothesis: INT8 weight-only quantization of the Linear stratum reduces storage with bounded quality damage on the GPU lane.
+2026-07-22 06:04:46.334 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000402
+2026-07-22 06:04:47.207 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":1.58550714,"total_macs":1585507140.0,"audio_seconds":1.0,"mel_frames":87,"unsupported_operators":["aten::abs","aten::add","aten::add_","aten::atan2","aten::clamp_min","aten::complex","aten::cos","aten::div","aten::exp","aten::gelu","aten::hann_window","aten::istft","aten::linalg_vector_norm","aten::log","aten::mean","aten::mul","aten::sin"],"reason":null}
+2026-07-22 06:20:15.982 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-22 06:20:15.995 | INFO | Optimized-variant row 1 written for freev variant=int8_weight_only seed=42
+2026-07-22 06:20:15.995 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 976.4s

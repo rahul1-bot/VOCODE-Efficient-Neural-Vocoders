@@ -1,0 +1,12 @@
+schema_version: 1
+study: 2
+architecture: hifigan_v2
+variant: baseline_b200
+lane: b200
+same_lane_baseline: baseline_b200
+intervention:
+  technique: baseline_identity
+  produced_variant_name: baseline_b200
+runtime_setup: {}
+measurement_note: Unmodified fp32 baseline re-measured on the B200 lane under the current runtime; same-stack
+  denominator for compiled GPU lanes.

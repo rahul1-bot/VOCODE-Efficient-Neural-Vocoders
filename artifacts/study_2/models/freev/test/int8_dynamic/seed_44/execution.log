@@ -1,0 +1,7 @@
+2026-07-21 06:56:43.509 | INFO | Study 2 execution run_id=s2_freev_int8_dynamic_s44_20260721_0649 architecture=freev seed=44 experiment_category=optimized_variant stage=test
+2026-07-21 06:56:43.510 | INFO | Hypothesis: Dynamic INT8 over the Linear and recurrent stratum trades measured quality for CPU latency and storage.
+2026-07-21 06:58:40.559 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.006728
+2026-07-21 06:58:40.691 | INFO | macs_profile={"status":"failed","method":"fvcore_jit_trace","giga_macs_per_audio_second":null,"total_macs":null,"audio_seconds":null,"mel_frames":null,"unsupported_operators":[],"reason":"RuntimeError: Only tensors or (possibly nested) dict or tuples of tensors can be inputs to traced functions. Got int"}
+2026-07-21 08:19:31.134 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 08:19:31.155 | INFO | Optimized-variant row 1 written for freev variant=int8_dynamic seed=44
+2026-07-21 08:19:31.156 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 4967.7s

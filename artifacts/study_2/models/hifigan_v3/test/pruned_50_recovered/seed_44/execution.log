@@ -1,0 +1,7 @@
+2026-07-21 21:14:55.228 | INFO | Study 2 execution run_id=s2_hifigan_v3_pruned_50_recovered_s44_20260721_1443r architecture=hifigan_v3 seed=44 experiment_category=optimized_variant stage=test
+2026-07-21 21:14:55.229 | INFO | Hypothesis: Recovery fine-tuning after fifty percent pruning restores quality relative to the masked baseline.
+2026-07-21 21:15:43.142 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000345
+2026-07-21 21:15:43.321 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":1.933533184,"total_macs":1933533184.0,"audio_seconds":1.0,"mel_frames":86,"unsupported_operators":["aten::_weight_norm","aten::add","aten::div","aten::leaky_relu","aten::tanh"],"reason":null}
+2026-07-21 21:28:47.740 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 21:28:47.754 | INFO | Optimized-variant row 1 written for hifigan_v3 variant=pruned_50_recovered seed=44
+2026-07-21 21:28:47.754 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 832.5s

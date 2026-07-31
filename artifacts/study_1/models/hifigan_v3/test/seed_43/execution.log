@@ -1,0 +1,7 @@
+2026-07-06 20:08:39.549 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:96 - Experiment vocode_checkpoint01_training_reproduction run_id=hifigan_v3_final_seed43_test_20260706_2207 architecture=hifigan_v3 seed=43 evidence_category=project_trained_reproduction stage=test
+2026-07-06 20:08:39.549 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:101 - Hypothesis: hifigan_v3 project-trained final evaluation seed 43 reproduces the seed-42 gate metrics on the step-245000 checkpoint within evaluation-seed variation.
+2026-07-06 20:11:39.865 | INFO     | vocode.metrics.rtf:on_predict_end:98 - RealTimeFactor over 520 utterances: 0.049458
+2026-07-06 20:11:39.882 | INFO     | vocode.evaluation.audio_quality:start:77 - Audio-quality metric pool initialized with 28 worker threads
+2026-07-06 20:13:09.792 | INFO     | vocode.evaluation.audio_quality:finalize:137 - Test aggregate over 525 utterances: mel_error=0.3607, pesq=2.5765 (failures=0), stoi=0.9520 (failures=0)
+2026-07-06 20:13:09.799 | INFO     | vocode.evaluation.audio_quality:close:157 - Audio-quality metric pool shutdown complete
+2026-07-06 20:13:09.845 | INFO     | vocode.trainers.scratch_reproduction_runner:_finalize_experiment_log:132 - Experiment vocode_checkpoint01_training_reproduction finished. Rows written: 1. Elapsed: 270.3s

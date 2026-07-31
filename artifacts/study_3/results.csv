@@ -1,0 +1,13 @@
+architecture_name,display_name,family,parameters,size_megabytes,pesq_recorded,pesq_true_length,stoi_recorded,stoi_true_length,mel_error,multi_resolution_stft_error,mcd,utmos_strong,rtf_b200,rtf_m3_max,rtf_cpu,compute_fraction,classification,speed_quality_frontier,parameter_quality_frontier,size_quality_frontier
+rndvoc,RNDVoC,frame-level Fourier,3572361,14.944496,3.856795,3.895272,0.987090,0.987083,0.138808,0.960280,6.090165,4.007339,0.055900,0.074788,0.083753,12.5 percent of generator updates,"matched, strongest fleet row",yes,yes,yes
+rfwave,RFWave,flow matching,18139296,69.207523,3.669211,3.784551,0.980810,0.980918,3.837596,1.139975,17.973444,3.513726,0.014810,0.079805,0.749108,12.5 percent,"matched at gate 1, strong band",yes,no,no
+vocos,Vocos,frame-level Fourier,13531650,51.623055,3.565251,3.613685,0.979314,0.979311,3.046101,0.929784,5.501836,4.088559,0.004725,0.004368,0.009780,25 percent,matched,yes,no,no
+vocosformer,VocosFormer,hybrid attention,13778690,52.565437,2.479785,3.512457,0.958694,0.975776,2.910696,0.940944,5.901924,3.901289,0.012170,0.008444,0.010541,full project quantum,"hybrid, padding-sensitive; near-parity true-length",no,no,no
+freev,FreeV,frame-level Fourier,18220557,69.662464,3.339431,3.386266,0.969317,0.969480,0.174622,1.023562,8.324272,3.788606,0.007677,0.007522,0.015660,25 percent,matched,no,no,no
+bigvgan,BigVGAN-base,time-domain GAN,14025154,53.508400,3.256982,3.320068,0.973688,0.973680,0.638439,1.021958,9.447781,4.062089,0.157267,0.203298,0.698461,12.5 percent,"partial, flat-tail stop",no,no,no
+hifigan_v1,HiFi-GAN V1,time-domain GAN,13936130,53.162117,3.317037,3.305055,0.974800,0.973770,0.270400,1.084972,10.928706,4.203445,0.119740,0.077921,0.183589,50 percent,"partial, ceiling-limited",no,no,no
+hifigan_v3,HiFi-GAN V3,time-domain GAN,1464322,5.585945,2.576487,2.550108,0.951972,0.948797,0.360738,1.204617,14.071289,3.850842,0.057986,0.025218,0.036569,50 percent,"partial, ceiling-limited",no,yes,yes
+apnet2,APNet2,frame-level Fourier,31425539,119.878918,2.541039,2.515006,0.930045,0.929981,0.543382,1.125286,9.978486,3.091390,0.009451,0.006494,0.019132,25 percent,"partial, flat-tail stop",no,no,no
+hifigan_v2,HiFi-GAN V2,time-domain GAN,928514,3.542000,2.456062,2.399747,0.945346,0.942053,0.393529,1.276312,15.446203,3.906645,0.114028,0.070355,0.050692,25 percent,"partial, flat-tail stop",no,yes,yes
+lpcnet,LPCNet,autoregressive,1232992,4.703491,1.077017,1.051904,0.527543,0.526748,2.189054,8.241870,40.088059,1.235495,11.363275,,9.201496,5.8 percent of steps,floor rule row,no,no,no
+melgan,MelGAN,time-domain GAN,4266050,16.273689,1.059750,1.043036,0.418274,0.418140,1.791550,3.158897,84.818439,1.735569,0.074215,0.045514,0.045552,~10 percent of epochs,floor row (b),no,no,no

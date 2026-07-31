@@ -1,0 +1,15 @@
+schema_version: 1
+study: 2
+architecture: freev
+variant: int8_dynamic
+lane: cpu
+same_lane_baseline: baseline_cpu
+intervention:
+  technique: dynamic_int8
+  quantized_engine: x86
+  measured_parameter_coverage: 0.7780926236228672
+  quantized_module_kinds:
+  - linear
+  quantized_dtype: qint8
+runtime_setup: {}
+measurement_note: Dynamic INT8 linear layers; CPU-lane technique; quality degradation measured, not assumed.

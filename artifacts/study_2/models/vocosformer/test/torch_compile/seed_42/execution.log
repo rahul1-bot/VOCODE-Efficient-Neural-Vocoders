@@ -1,0 +1,7 @@
+2026-07-22 04:30:16.477 | INFO | Study 2 execution run_id=s2_vocosformer_torch_compile_s42_20260721_1918 architecture=vocosformer seed=42 experiment_category=optimized_variant stage=test
+2026-07-22 04:30:16.478 | INFO | Hypothesis: Default-mode compilation changes latency without changing quality beyond seed spread.
+2026-07-22 04:31:32.203 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000322
+2026-07-22 04:31:32.317 | INFO | macs_profile={"status":"failed","method":"fvcore_jit_trace","giga_macs_per_audio_second":null,"total_macs":null,"audio_seconds":null,"mel_frames":null,"unsupported_operators":[],"reason":"RuntimeError: Detected that you are using FX to torch.jit.trace a dynamo-optimized function. This is not supported at the moment."}
+2026-07-22 04:52:51.714 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-22 04:52:51.736 | INFO | Optimized-variant row 1 written for vocosformer variant=torch_compile seed=42
+2026-07-22 04:52:51.737 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1355.3s

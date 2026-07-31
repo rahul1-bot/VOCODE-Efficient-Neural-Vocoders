@@ -1,0 +1,7 @@
+2026-07-21 17:09:50.463 | INFO | Study 2 execution run_id=s2_hifigan_v1_pruned_50_s43_20260721_1443 architecture=hifigan_v1 seed=43 experiment_category=optimized_variant stage=test
+2026-07-21 17:09:50.463 | INFO | Hypothesis: Fifty percent masked magnitude pruning is the central sparsity-quality response point without recovery.
+2026-07-21 17:12:08.152 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000960
+2026-07-21 17:12:09.144 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":26.406518784,"total_macs":26406518784.0,"audio_seconds":1.0,"mel_frames":86,"unsupported_operators":["aten::_weight_norm","aten::add","aten::div","aten::leaky_relu","aten::tanh"],"reason":null}
+2026-07-21 17:26:10.659 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 17:26:10.674 | INFO | Optimized-variant row 1 written for hifigan_v1 variant=pruned_50 seed=43
+2026-07-21 17:26:10.674 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 980.2s

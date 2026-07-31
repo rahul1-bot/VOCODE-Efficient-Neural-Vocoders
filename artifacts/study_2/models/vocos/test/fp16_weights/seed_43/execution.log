@@ -1,0 +1,7 @@
+2026-07-21 15:23:45.681 | INFO | Study 2 execution run_id=s2_vocos_fp16_weights_s43_20260721_1443 architecture=vocos seed=43 experiment_category=optimized_variant stage=test
+2026-07-21 15:23:45.681 | INFO | Hypothesis: Half-precision weight storage halves the deployable footprint while its speed and quality response is measured per lane.
+2026-07-21 15:25:08.994 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000221
+2026-07-21 15:25:09.293 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":1.270964224,"total_macs":1270964224.0,"audio_seconds":1.0,"mel_frames":94,"unsupported_operators":["aten::add","aten::cos","aten::exp","aten::gelu","aten::istft","aten::mul","aten::sin"],"reason":null}
+2026-07-21 15:38:35.185 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 15:38:35.197 | INFO | Optimized-variant row 1 written for vocos variant=fp16_weights seed=43
+2026-07-21 15:38:35.197 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 889.5s

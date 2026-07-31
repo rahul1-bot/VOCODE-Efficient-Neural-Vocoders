@@ -1,0 +1,2 @@
+architecture_name,display_name,family,parameters,size_megabytes,pesq_recorded,pesq_true_length,stoi_recorded,stoi_true_length,mel_error,multi_resolution_stft_error,mcd,utmos_strong,rtf_b200,rtf_m3_max,rtf_cpu,compute_fraction,classification,speed_quality_frontier,parameter_quality_frontier,size_quality_frontier
+hifigan_v2,HiFi-GAN V2,time-domain GAN,928514,3.542000,2.456062,2.399747,0.945346,0.942053,0.393529,1.276312,15.446203,3.906645,0.114028,0.070355,0.050692,25 percent,"partial, flat-tail stop",no,yes,yes

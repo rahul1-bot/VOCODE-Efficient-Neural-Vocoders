@@ -1,0 +1,7 @@
+2026-07-22 05:47:19.853 | INFO | Study 2 execution run_id=s2_vocos_int8_weight_only_s43_20260722_0728 architecture=vocos seed=43 experiment_category=optimized_variant stage=test
+2026-07-22 05:47:19.853 | INFO | Hypothesis: INT8 weight-only quantization of the Linear stratum reduces storage with bounded quality damage on the GPU lane.
+2026-07-22 05:47:51.375 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000297
+2026-07-22 05:47:51.550 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":1.270964224,"total_macs":1270964224.0,"audio_seconds":1.0,"mel_frames":94,"unsupported_operators":["aten::add","aten::add_","aten::cos","aten::exp","aten::gelu","aten::istft","aten::mul","aten::sin"],"reason":null}
+2026-07-22 06:03:41.295 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-22 06:03:41.309 | INFO | Optimized-variant row 1 written for vocos variant=int8_weight_only seed=43
+2026-07-22 06:03:41.309 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 981.5s

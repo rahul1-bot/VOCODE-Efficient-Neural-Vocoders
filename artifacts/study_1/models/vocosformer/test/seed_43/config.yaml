@@ -1,0 +1,53 @@
+schema_version: 1
+experiment:
+  id: vocosformer_final_seed43_test_20260707_1700
+  study: 1
+  stage: test
+  architecture: vocosformer
+  variant: project_trained_matched_vocos_24khz_ljspeech
+  dataset: LJSpeech-1.1
+  seed: 43
+  seed_role: evaluation
+  status: completed
+data:
+  sample_rate: 24000
+  partition_strategy: ordered_identifier_holdout
+  train_utterances: 12475
+  validation_utterances: 100
+  test_utterances: 525
+  quality_evaluation_batch_size: 16
+  true_length_evaluation_batch_size: 1
+  rtf_batch_size: 1
+  test_shuffle: false
+  full_utterances: true
+checkpoint:
+  role: selected_evaluation_checkpoint
+  epoch: 307
+  global_step: 120000
+execution:
+  accelerator: cuda
+  hardware: nvidia_b200
+  precision: fp32
+  rtf_measured: true
+  rtf_warmup_utterances: 5
+  rtf_timed_utterances: 520
+  runtime_profiling_enabled: true
+  runtime_profile_interval_steps: 50
+metrics:
+  study_1:
+  - pesq
+  - pesq_wb_enrichment
+  - stoi
+  - stoi_enrichment
+  - mel_error
+  - multi_resolution_stft_error
+  - mcd
+  - f0_rmse_cents
+  - periodicity_rmse
+  - vuv_f1
+  - utmos_strong
+  - las_rmse
+  - real_time_factor
+  - parameter_count
+  - model_size_megabytes
+  - macs_per_second_audio

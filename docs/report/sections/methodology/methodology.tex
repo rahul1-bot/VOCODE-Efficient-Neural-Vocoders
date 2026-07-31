@@ -1,0 +1,309 @@
+\section{Methodology}
+\label{sec:methodology}
+
+We benchmark twelve neural vocoders under one common data, evaluation, and
+measurement protocol.  A \emph{Project-Trained Configuration} is one architecture recipe
+fitted from random initialization under the project budget; its selected
+state is the \emph{Retained Project Checkpoint}, which every measurement
+inherits.  The protocol fixes corpus membership, evaluator, and measurement
+procedure while each configuration keeps its native conditioning, objective,
+and optimization recipe: a structured common testbed, not an equal-compute
+causal benchmark.  Throughout, a deployment artifact $a=(m,t,h)$ applies
+transformation $t$ to the checkpoint $\theta_m^\star$ of configuration
+$m\in\mathcal M$ on requested \emph{hardware lane}
+$h\in\{\mathrm{B200},\mathrm{CPU}\}$; the
+identity transformation defines the paired same-lane control $c(a)$, and
+inference seeds $s\in\{42,43,44\}$ re-execute one selected state without
+resampling training (single exception: static ONNX INT8,
+Section~\ref{sec:deployment-methods}).
+
+\subsection{Data Set and Preprocessing}
+\label{sec:data-preprocessing}
+
+All experiments use LJSpeech~1.1, 13,100 English utterances from one speaker
+\citep{ito2017ljspeech}.  Identifier-sorted disjoint blocks fix 12,475
+training, 100 validation, and 525 evaluation items without a random seed;
+identifier order preserves chapter structure, so the split is fixed
+membership rather than a random utterance sample.
+Training loaders shuffle and crop fixed-length segments,
+whereas validation and evaluation consume complete utterances.  The
+evaluation suffix is \emph{adaptive}, not untouched: its PESQ values informed
+stop and extension decisions, and one deterministic repair of RFWave's
+inference sampler.
+
+Every configuration retains its native conditioning interface: most consume
+80 Slaney-scale mel bands at 22.05~kHz; BigVGAN-base uses 100 normalized
+bands, and Vocos, VocosFormer, and RFWave use 100 unnormalized HTK-scale
+bands at 24~kHz; all mel pipelines share a 1,024-point Hann transform with
+a 256-sample hop, while LPCNet consumes 18 Bark-frequency cepstra plus pitch and
+correlation features at 16~kHz.  Training-only transformations are peak
+normalization to 0.95 (HiFi-GAN V1, V2, and V3), uniform random peak gain in
+$[-6,-1]$~dB (Vocos, VocosFormer), and LPCNet excitation noise with standard
+deviation 0.3; evaluation waveforms receive none.
+
+\subsection{Model Architectures}
+\label{sec:model-architectures}
+
+The cohort spans five generation mechanisms: time-domain adversarial
+upsamplers (MelGAN, HiFi-GAN V1, V2, V3, BigVGAN-base), adversarially
+trained spectral models with inverse-STFT heads (APNet2, FreeV, RNDVoC,
+Vocos), hybrid attention (VocosFormer), sample-level autoregression
+(LPCNet), and rectified-flow synthesis (RFWave);
+Table~\ref{tab:benchmark-cohort} reports the executed configuration surface,
+with the cited architectural definitions in the literature review.
+
+\begin{table}[t]
+  \centering
+  \footnotesize
+  \renewcommand{\arraystretch}{1.02}
+  \setlength{\tabcolsep}{4pt}
+  \InputIfFileExists{sections/methodology/scripts/generated/cohort_table.tex}{}{%
+    \input{scripts/generated/cohort_table.tex}}
+  \caption{Project-Trained Configurations.  Conditioning: input features and
+  rate (kHz); Params: deployable parameters (millions); Segment: training
+  crop (samples); Updates: executed budget (thousands); State: the Retained
+  Project Checkpoint, the terminal durable state selected by the
+  registered gate.}
+  \label{tab:benchmark-cohort}
+\end{table}
+
+VocosFormer, the project-defined exception, inserts a residual-convolution,
+self-attention, residual-convolution block from the WavTokenizer decoder
+lineage into a shallower Vocos chassis under matched losses, data, and
+training quantum; its 13.78 million parameters sit $1.83\%$ above Vocos,
+and one training trajectory supports only configuration-level comparison.
+
+\subsection{Training and Checkpoint Selection}
+\label{sec:training-checkpoint}
+
+We fitted each configuration through one recorded-seed (1234) training
+trajectory under its native objective and a finite registered budget.  All
+models are PyTorch modules executed through the project-controlled
+SyntheticMind harness, which standardizes fitting, validation, metric
+reduction, and checkpoint restore; the VOCODE library
+supplies data pipelines, objectives, synthesis paths, evaluators, and
+deployment transformations, and each configuration, variant, lane, and
+execution runs as one isolated job.
+Eleven runs used a 48-GB NVIDIA L40S and RFWave an 80-GB NVIDIA A100;
+recorded training sums to 75.31 GPU-hours, a lower bound.
+Architecture-native rather than equalized budgets make the retained states
+controlled project realizations, not attainable quality ceilings.
+
+Objectives are architecture-native.  MelGAN optimizes least-squares
+adversarial and feature-matching terms alone; HiFi-GAN V1, V2, and V3 and
+BigVGAN-base combine the same terms over their discriminator ensembles
+with weighted mel reconstruction, and Vocos and VocosFormer apply the
+hinge form of that composition.  APNet2, FreeV, and
+RNDVoC add log-amplitude, anti-wrapping phase, and STFT-consistency terms
+with real and imaginary reconstruction to mel, hinge adversarial, and
+feature-matching supervision.  LPCNet minimizes teacher-forced cross
+entropy over its quantized mu-law excitation; RFWave regresses conditional
+flow velocities in the waveform domain with auxiliary magnitude and
+band-overlap terms.  Objectives were deliberately not standardized, so raw
+training and validation losses are not comparable across families and
+never ranked configurations.  Ten configurations optimized with AdamW and
+two (MelGAN, LPCNet) with Adam; initial learning rates were
+$2{\times}10^{-4}$ (APNet2, FreeV, HiFi-GAN V1, V2, and V3, RNDVoC,
+RFWave), $1{\times}10^{-4}$ (BigVGAN-base, MelGAN), $5{\times}10^{-4}$
+(Vocos, VocosFormer), and $1{\times}10^{-3}$ (LPCNet).  LPCNet additionally
+trains under scheduled GRU sparsification from 2k to 20k updates, the
+HiFi-GAN V1 and V3 budgets include 4,800 replayed updates after a durable
+resume, and exact coefficients and schedules remain recoverable from the
+resolved run records and code.
+
+Checkpoint selection follows a registered gate: validation loss informed
+continuation, durable checkpoints were written every 5,000 updates, a
+sub-0.02 PESQ gain across gates indicated a plateau, and every run kept a
+registered ceiling.  Where a commensurate published or released-checkpoint
+PESQ anchor existed, the registered quality target was 93\% of that
+anchor; RFWave used a registered PESQ floor of 3.55, and LPCNet and
+VocosFormer had no commensurate numeric anchor.  For each configuration, evaluation
+used the terminal durable checkpoint admitted by this gate, the Retained
+Project Checkpoint $\theta_m^\star$ of Table~\ref{tab:benchmark-cohort},
+not a retrospectively substituted validation minimum; the
+validation-best, global-minimum, and evaluated states remain in the
+resolved records.  The accepted runs predate the repair that seeds model
+construction and workers deterministically, so 1234 is a recorded rather
+than reconstructible seed; retained states are immutable, and bitwise
+regeneration is not claimed.
+
+\subsection{Deployment Optimization Methods}
+\label{sec:deployment-methods}
+
+We transform each Retained Project Checkpoint with the deployment variants
+of Figure~\ref{fig:deployment-admission}, spanning TorchInductor
+compilation, FP16 weight casting, INT8 quantization, ONNX deployment,
+magnitude pruning at 30/50/70\% with one recovery arm, and RFWave
+solver-step reduction.  Admission requires an executable transformed path,
+nonzero operator or parameter coverage, all 525 utterances under three
+executions, and a same-profile pre-transformation measurement; unsupported
+cells fail before execution expansion.  The executed surface contains 22
+pre-transformation controls and 69 transformed groups (91 groups, 273
+executions); LPCNet completed no admissible execution on either lane,
+leaving eleven transformed configurations, and 29 exclusion records
+document 88 rejected attempts.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.88\linewidth]{deployment_admission_matrix}
+  \caption{Deployment admission surface.  Filled: admitted three-execution
+  groups (91, incl.\ 22 same-lane controls); crosses: the ten excluded
+  attempts inside the plotted vocabulary (invalid recovery or control
+  states; incomplete LPCNet executions), with the 29-row exclusion register
+  remaining authoritative.  Compile RO = reduce-overhead; INT8 WO =
+  weight-only; Recovery = 13-epoch recovery of the 50\%-pruned state; ODE
+  $k$ = $k$ Euler steps.}
+  \label{fig:deployment-admission}
+\end{figure}
+
+Static ONNX INT8 uses ONNX
+Runtime~1.24.4 on its CPU provider with eight intra-op threads, QDQ format,
+per-channel QInt8 weights, QUInt8 activations, and coverage of Conv,
+ConvTranspose, MatMul, and Gemm.  Each execution reconstructs its quantized
+graph, calibrating on 48 mel batches from the execution-seeded shuffled
+training loader, so these executions combine calibration-set and runtime
+variation rather than repeating one fixed artifact.  Dynamic and weight-only
+INT8 retain their distinct PyTorch and torchao semantics; an unsupported
+INT4 probe contributes no result.  Pruning is magnitude-based with dense
+masks, testing weight removal but not sparse storage or kernels: Vocos,
+FreeV, VocosFormer, and RFWave use $L_2$-ranked structured output-channel
+pruning over backbone Linear projections (spectral heads excluded); the rest
+use global $L_1$ unstructured pruning over convolutional, Linear, and
+recurrent weights.  Selected 50\% states received 13 recovery epochs at one
+tenth learning rate, masks held during fine-tuning and zeros baked into the
+evaluated checkpoint; absent an admitted dense-continuation control,
+recovered rows support descriptive rather than causal claims.  RFWave step
+reduction shrinks its ten-step Euler baseline to eight, four, or two steps.
+
+\subsection{Evaluation Metrics and Analysis Protocols}
+\label{sec:evaluation-protocols}
+
+\paragraph{Quality proxies.}
+Wideband PESQ, withdrawn by ITU-T in January 2024 in favor of the P.863
+family \citep{itut2024p862} yet still the dominant quality proxy in
+the vocoder literature, remains the primary intrusive measure
+\citep{rix2001pesq};
+STOI \citep{taal2011stoi} and UTMOS \citep{saeki2022utmos} test dependence on
+the proxy choice.  Reference and synthesized waveforms are truncated to
+their common unpadded length (\emph{true-length} evaluation) before
+resampling; PESQ operates wideband at
+16~kHz, classic non-extended STOI at 10~kHz, and UTMOS (SpeechMOS UTMOS22
+strong~1.2.0) scores the synthesized waveform alone at 16~kHz.  Mel $L_1$, multi-resolution STFT, mel-cepstral,
+log-spectrum, pitch, periodicity, and voicing errors are diagnostics only;
+architecture-native or alignment-sensitive values are not cross-model
+endpoints, and without a blinded listening study every quality claim remains
+a proxy claim.  For utterance $i$ in the fixed 525-item evaluation set
+$\mathcal I$, with conditioning $x_i$ and reference $y_i$, artifact $a$
+under execution $s$ synthesizes $\widehat y_{a,s,i}=f_{a,s}(x_i)$, and
+proxy $q$ is aggregated as
+\begin{equation}
+  \widehat Q_a^{(q)}
+  =\frac{1}{|\mathcal I|}\sum_{i\in\mathcal I}
+   \frac{1}{|\mathcal S|}\sum_{s\in\mathcal S}
+   q\bigl(y_i,\widehat y_{a,s,i}\bigr),
+  \qquad \mathcal S=\{42,43,44\},
+  \label{eq:quality-estimator}
+\end{equation}
+where the reference-free UTMOS ignores $y_i$; execution values are averaged
+within each utterance before any paired contrast, and for static ONNX INT8
+the execution index also carries calibration-state variation
+(Section~\ref{sec:deployment-methods}).
+
+\paragraph{Timing and footprint protocol.}
+Beyond quality, endpoints include the continuous process-RSS high-water
+mark, one-time ONNX session-construction time, and complexity as
+parameters, serialized bytes, and MACs from one traced second of audio;
+jobs were independently
+scheduled, and paired contrasts match the requested resource profile,
+never the physical host.  After five warm-up batches,
+pre-transformation evaluation measures one complete pass at batch one on
+an NVIDIA B200.  The CPU column of Table~\ref{tab:baseline-surface} is the
+retained comparative record, three executions each timing one complete
+post-warm-up pass on an 8-core CPU host, and is never cross-compared with
+deployment-phase RTFs; LPCNet's 27-item timing record is excluded from
+strict speed frontiers.  Deployment evaluation measures three synchronized
+calls per utterance for the 520 post-warm-up utterances on B200 or CPU,
+each timed call
+following one untimed prediction of the same input, so the quantities
+describe warm repeated synthesis only.  For artifact $a$, execution $s$,
+timed items $\mathcal I_a\subseteq\mathcal I$, synchronized time
+$\tau_{a,s,i,r}$, duration $d_i$, and $J_a\in\{1,3\}$ calls, warm RTF is
+\begin{equation}
+  \bar\tau_{a,s,i}=J_a^{-1}\sum_{r=1}^{J_a}\tau_{a,s,i,r},\qquad
+  R_{a,s}=\frac{\sum_{i\in\mathcal I_a}\bar\tau_{a,s,i}}
+                 {\sum_{i\in\mathcal I_a}d_i},
+  \label{eq:rtf}
+\end{equation}
+and the group-level $\widehat R_a$ is the mean of $R_{a,s}$ over
+executions.  Reported p50/p95 are per-execution percentiles of the 520
+per-utterance three-repetition means $\bar\tau_{a,s,i}$, averaged over
+executions, not of the 1,560 individual calls, whose raw durations were
+not retained.  B200 jobs requested 16 CPUs and 64~GiB, CPU
+jobs 8 CPUs and 16~GiB; the Python~3.14.2, PyTorch~2.13.0+cu130,
+torchaudio~2.11.0, torchao~0.17.0, ONNX~1.20.1, and ONNX Runtime~1.24.4 stack
+is retained, whereas host-identifying fields are irrecoverable.
+
+\paragraph{Paired contrasts and decision rule.}
+For quality proxy $q$ and transformed artifact $a$ with paired control
+$c(a)$, quality estimates $\widehat Q$ from
+Eq.~\eqref{eq:quality-estimator}, warm RTF $\widehat R$ from
+Eq.~\eqref{eq:rtf}, and serialized deployable size $D$, the continuous
+effects are
+\begin{equation}
+  \Delta Q_a^{(q)}=\widehat Q_a^{(q)}-\widehat Q_{c(a)}^{(q)},\qquad
+  S_a=\widehat R_{c(a)}/\widehat R_a,\qquad
+  Z_a=D_a/D_{c(a)}.
+  \label{eq:deployment-effects}
+\end{equation}
+Quality deltas are utterance-paired, whereas speedups and size ratios are
+same-profile descriptive contrasts because hosts are not paired.  Quality
+contrasts pair the execution-averaged utterance values of
+Eq.~\eqref{eq:quality-estimator} before a Student $t$ interval, with a
+5,000-replicate percentile bootstrap as sensitivity analysis
+\citep{student1908probableerror,efron1979bootstrap}.  These are fixed-set
+descriptive intervals quantifying utterance dispersion over the 525 fixed
+items under a working exchangeability assumption; they omit multiplicity
+correction and variation from training, speaker, recovery seed, or host,
+and for static INT8 do not separate calibration from runtime variation.
+A post hoc ordered classifier provides an exploratory engineering summary
+of Eq.~\eqref{eq:deployment-effects}: dense-masked pruning and recovery rows
+are labeled first: harmful when $\Delta Q_a^{(\mathrm{PESQ})}<-0.10$,
+otherwise inconclusive; remaining MelGAN rows are fixed as inconclusive
+because their PESQ is floor-censored.  Every other row receives
+\begin{equation}
+  \ell(a)=
+  \begin{cases}
+    \text{harmful}, &
+      \Delta Q_a^{(\mathrm{PESQ})}<-0.10
+      \ \lor\ \bigl(S_a<0.90\wedge Z_a>0.90\bigr)\\[1pt]
+    \text{beneficial}, &
+      \Delta Q_a^{(\mathrm{PESQ})}\ge-0.05
+      \ \wedge\ S_a\ge0.90
+      \ \wedge\ \bigl(S_a\ge1.10\lor Z_a\le0.55\bigr)\\[1pt]
+    \text{inconclusive}, & \text{otherwise.}
+  \end{cases}
+  \label{eq:decision-rule}
+\end{equation}
+Thresholding PESQ alone makes these labels PESQ-preserving statements, not
+perceptual equivalence claims.  A $3^5=243$ grid tests label sensitivity by
+varying each cutoff in Eq.~\eqref{eq:decision-rule} over three levels
+(preservation $-0.075/-0.05/-0.025$; harm $-0.15/-0.10/-0.075$; speed floor
+$0.85/0.90/0.95$; gain $1.05/1.10/1.20$; size $0.50/0.55/0.60$).
+
+\paragraph{Frontier and constraint-aware selection.}
+Under one quality proxy $q$ and one cost axis (RTF, parameter count, or
+serialized size), artifact $a$ dominates $a'$ when
+$\widehat Q_a^{(q)}\ge\widehat Q_{a'}^{(q)}$ at no greater cost, with at
+least one inequality strict; each reported frontier is the nondominated
+set, recomputed per proxy and axis.  For
+hardware lane $h$, admitted artifacts $\mathcal A_h$, quality floor
+$q_{\min}$, parameter ceiling $P_{\max}$, and size ceiling $D_{\max}$,
+deployment selection solves
+\begin{equation}
+  a_h^\star\in\underset{a\in\mathcal A_h}{\arg\min}\ \widehat R_a
+  \quad\text{s.t.}\quad
+  \widehat Q_a^{(q)}\ge q_{\min},\quad P_a\le P_{\max},\quad
+  D_a\le D_{\max},
+  \label{eq:constrained-selection}
+\end{equation}
+so every recommendation is conditional on hardware, proxy, and constraints.

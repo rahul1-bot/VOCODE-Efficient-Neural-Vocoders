@@ -1,0 +1,59 @@
+schema_version: 1
+study: 2
+experiment:
+  id: s2_melgan_onnx_fp32_s44_20260721_0649
+  stage: test
+  architecture: melgan
+  variant: onnx_fp32
+  dataset: LJSpeech-1.1
+  seed: 44
+  seed_role: repeated_inference
+  status: completed
+  hypothesis: The exported ONNX Runtime graph is the same-lane denominator for the static INT8 deployment
+    claim.
+data:
+  sample_rate_hz: null
+  partition_strategy: ordered_identifier_holdout
+  train_utterances: 12475
+  validation_utterances: 100
+  test_utterances: 525
+  quality_batch_size: 16
+  timing_batch_size: 1
+  test_shuffle: false
+  full_utterances: true
+intervention:
+  configuration: ../config.yaml
+  same_lane_baseline: baseline_cpu
+  checkpoint_role: study_1_selected_state
+  same_state_across_evaluation_seeds: true
+execution:
+  lane: cpu
+  hardware: cpu_8_core
+  accelerator: cpu
+  precision: fp32
+  rtf_warmup_iterations: 5.0
+  rtf_timed_repetitions: 3.0
+  timed_utterances: 520.0
+  runtime_setup:
+    execution_provider:
+    - CPUExecutionProvider
+    intra_op_threads: 8
+    session_build_seconds: 0.033055478000001415
+    first_inference_seconds: not_retained
+measurements:
+  reported:
+  - pesq
+  - stoi
+  - mel
+  - stft
+  - mcd
+  - las
+  - f0
+  - periodicity
+  - voicing
+  - utmos
+  - rtf
+  - macs
+  - parameters
+  - size
+  mac_status: partial

@@ -1,0 +1,58 @@
+schema_version: 1
+study: 2
+architecture: melgan
+variant: onnx_fp32
+lane: cpu
+same_lane_baseline: baseline_cpu
+intervention:
+  technique: onnx_runtime_deployment
+  static_int8: false
+  opset_version: 17
+  calibration_mel_count: 48
+  intra_op_threads: 8
+  resolved_providers:
+  - CPUExecutionProvider
+  fp32_artifact:
+    artifact_bytes: 17110381
+    initializer_parameter_count: 4260257
+    opset_version: 17
+    node_type_counts:
+      Constant: 114
+      Add: 13
+      Div: 1
+      Concat: 14
+      Slice: 14
+      Transpose: 14
+      Cast: 14
+      Pad: 14
+      Conv: 38
+      LeakyRelu: 29
+      ConvTranspose: 4
+      Tanh: 1
+  deployed_artifact:
+    artifact_bytes: 17110381
+    initializer_parameter_count: 4260257
+    opset_version: 17
+    node_type_counts:
+      Constant: 114
+      Add: 13
+      Div: 1
+      Concat: 14
+      Slice: 14
+      Transpose: 14
+      Cast: 14
+      Pad: 14
+      Conv: 38
+      LeakyRelu: 29
+      ConvTranspose: 4
+      Tanh: 1
+runtime_setup:
+  execution_provider:
+  - CPUExecutionProvider
+  intra_op_threads: 8
+  session_build_seconds_mean: 0.03362409833333402
+  session_build_seconds_min: 0.02687690999999859
+  session_build_seconds_max: 0.04093990700000205
+  first_inference_seconds: not_retained
+measurement_note: Exported ONNX Runtime CPU execution; same-lane denominator for the static INT8 deployment
+  claim.

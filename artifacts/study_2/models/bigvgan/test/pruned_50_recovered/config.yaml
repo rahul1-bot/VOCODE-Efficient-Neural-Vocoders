@@ -1,0 +1,19 @@
+schema_version: 1
+study: 2
+architecture: bigvgan
+variant: pruned_50_recovered
+lane: b200
+same_lane_baseline: baseline_b200
+intervention:
+  technique: pruned_recovered_verification
+  produced_variant_name: pruned_50_recovered
+  pruning_arm: global_unstructured
+  measured_sparsity: 0.5
+  minimum_accepted_sparsity: 0.45
+  pruning_configuration:
+    technique: unstructured_magnitude_pruning
+    pruning_amount: 0.5
+    target_module_kinds: conv_linear_gru_weights
+    target_scope: global_network
+runtime_setup: {}
+measurement_note: Pruned-and-recovered weights verified at load; no speedup expected from masked zeros.

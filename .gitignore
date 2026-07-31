@@ -1,0 +1,21 @@
+# Python bytecode and tooling caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# macOS
+.DS_Store
+
+# Model binaries and generated audio are never committed
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.wav
+*.flac
+
+# Local run outputs produced by the atomic CLI
+experiment_artifacts/

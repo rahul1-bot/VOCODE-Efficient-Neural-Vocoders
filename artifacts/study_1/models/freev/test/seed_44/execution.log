@@ -1,0 +1,4 @@
+2026-07-06 20:21:08.519 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:96 - Experiment vocode_checkpoint01_training_reproduction run_id=freev_final_seed44_test_20260706_2207 architecture=freev seed=44 evidence_category=project_trained_reproduction stage=test
+2026-07-06 20:21:08.519 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:101 - Hypothesis: freev project-trained final evaluation seed 44 reproduces the seed-42 gate metrics on the step-120000 checkpoint within evaluation-seed variation.
+2026-07-06 20:21:43.353 | INFO     | vocode.metrics.rtf:on_predict_end:98 - RealTimeFactor over 520 utterances: 0.007458
+2026-07-06 20:23:30.204 | INFO     | vocode.trainers.scratch_reproduction_runner:_finalize_experiment_log:132 - Experiment vocode_checkpoint01_training_reproduction finished. Rows written: 1. Elapsed: 141.7s

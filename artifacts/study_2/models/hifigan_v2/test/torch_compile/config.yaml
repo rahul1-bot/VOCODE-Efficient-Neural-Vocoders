@@ -1,0 +1,15 @@
+schema_version: 1
+study: 2
+architecture: hifigan_v2
+variant: torch_compile
+lane: b200
+same_lane_baseline: baseline_b200
+intervention:
+  technique: torch_compile
+  compiled_scope: network
+  mode: default
+  backend: inductor
+  fullgraph: false
+runtime_setup: {}
+measurement_note: Compiled execution; weights unchanged; quality must match baseline rows within seed
+  spread.

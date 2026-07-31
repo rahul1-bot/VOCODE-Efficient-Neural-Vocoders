@@ -1,0 +1,7 @@
+2026-07-21 10:51:02.104 | INFO | Study 2 execution run_id=s2_rfwave_int8_dynamic_s43_20260721_0649 architecture=rfwave seed=43 experiment_category=optimized_variant stage=test
+2026-07-21 10:51:02.104 | INFO | Hypothesis: Dynamic INT8 over the Linear and recurrent stratum trades measured quality for CPU latency and storage.
+2026-07-21 12:29:00.748 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.426117
+2026-07-21 12:29:00.872 | INFO | macs_profile={"status":"failed","method":"fvcore_jit_trace","giga_macs_per_audio_second":null,"total_macs":null,"audio_seconds":null,"mel_frames":null,"unsupported_operators":[],"reason":"RuntimeError: Only tensors or (possibly nested) dict or tuples of tensors can be inputs to traced functions. Got int"}
+2026-07-21 14:27:34.317 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 14:27:34.334 | INFO | Optimized-variant row 1 written for rfwave variant=int8_dynamic seed=43
+2026-07-21 14:27:34.334 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 12992.3s

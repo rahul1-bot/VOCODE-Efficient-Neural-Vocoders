@@ -1,0 +1,13 @@
+schema_version: 1
+study: 2
+architecture: vocosformer
+variant: fp16_weights
+lane: b200
+same_lane_baseline: baseline_b200
+intervention:
+  technique: weight_only_fp16
+  converted_scope: network
+  storage_dtype: float16
+  interface_dtype: float32
+runtime_setup: {}
+measurement_note: Half-precision weights and compute behind an fp32 interface; GPU lane measured.

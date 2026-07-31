@@ -1,0 +1,7 @@
+2026-07-21 22:08:51.332 | INFO | Study 2 execution run_id=s2_rndvoc_pruned_50_recovered_s42_20260721_1443r architecture=rndvoc seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 22:08:51.332 | INFO | Hypothesis: Recovery fine-tuning after fifty percent pruning restores quality relative to the masked baseline.
+2026-07-21 22:11:48.863 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.001768
+2026-07-21 22:11:49.643 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":5.085237464,"total_macs":5085237464.0,"audio_seconds":1.0,"mel_frames":87,"unsupported_operators":["aten::abs","aten::add","aten::atan2","aten::clamp_min","aten::complex","aten::cos","aten::div","aten::exp","aten::eye","aten::gelu","aten::hann_window","aten::istft","aten::linalg_vector_norm","aten::mean","aten::mul","aten::pad","aten::prelu","aten::silu","aten::sin","aten::sqrt","aten::sub","aten::var"],"reason":null}
+2026-07-21 22:30:36.731 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 22:30:36.750 | INFO | Optimized-variant row 1 written for rndvoc variant=pruned_50_recovered seed=42
+2026-07-21 22:30:36.750 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1305.4s

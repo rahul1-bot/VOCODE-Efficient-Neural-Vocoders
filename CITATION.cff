@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "VOCODE: A Systematic Evaluation of Quality, Efficiency, and Deployment Trade-offs in Neural Vocoders"
+authors:
+  - family-names: Sawhney
+    given-names: Rahul
+    email: rahul.sawhney@fau.de
+    affiliation: "Friedrich-Alexander-Universität Erlangen-Nürnberg"
+repository-code: "https://github.com/rahul1-bot/VOCODE-Efficient-Neural-Vocoders"
+license: MIT
+date-released: "2026-07-31"

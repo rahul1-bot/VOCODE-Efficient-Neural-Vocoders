@@ -1,0 +1,10 @@
+schema_version: 1
+study: 2
+architecture: hifigan_v2
+variant: baseline_cpu
+lane: cpu
+same_lane_baseline: baseline_cpu
+intervention:
+  technique: baseline_identity
+runtime_setup: {}
+measurement_note: Unmodified fp32 baseline on the CPU lane; denominator for CPU speed claims.

@@ -1,0 +1,2 @@
+architecture_name,display_name,family,parameters,size_megabytes,pesq_recorded,pesq_true_length,stoi_recorded,stoi_true_length,mel_error,multi_resolution_stft_error,mcd,utmos_strong,rtf_b200,rtf_m3_max,rtf_cpu,compute_fraction,classification,speed_quality_frontier,parameter_quality_frontier,size_quality_frontier
+rndvoc,RNDVoC,frame-level Fourier,3572361,14.944496,3.856795,3.895272,0.987090,0.987083,0.138808,0.960280,6.090165,4.007339,0.055900,0.074788,0.083753,12.5 percent of generator updates,"matched, strongest fleet row",yes,yes,yes

@@ -1,0 +1,7 @@
+2026-07-21 22:57:38.560 | INFO | Study 2 execution run_id=s2_rfwave_torch_compile_overhead_s42_20260721_1918 architecture=rfwave seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 22:57:38.560 | INFO | Hypothesis: The reduce-overhead compiler configuration changes the latency profile relative to default-mode compilation.
+2026-07-21 23:00:18.351 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.006678
+2026-07-21 23:00:18.449 | INFO | macs_profile={"status":"failed","method":"fvcore_jit_trace","giga_macs_per_audio_second":null,"total_macs":null,"audio_seconds":null,"mel_frames":null,"unsupported_operators":[],"reason":"RuntimeError: Detected that you are using FX to torch.jit.trace a dynamo-optimized function. This is not supported at the moment."}
+2026-07-21 23:23:56.361 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 23:23:56.379 | INFO | Optimized-variant row 1 written for rfwave variant=torch_compile_overhead seed=42
+2026-07-21 23:23:56.379 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1577.8s

@@ -1,0 +1,2 @@
+architecture_name,display_name,family,parameters,size_megabytes,pesq_recorded,pesq_true_length,stoi_recorded,stoi_true_length,mel_error,multi_resolution_stft_error,mcd,utmos_strong,rtf_b200,rtf_m3_max,rtf_cpu,compute_fraction,classification,speed_quality_frontier,parameter_quality_frontier,size_quality_frontier
+apnet2,APNet2,frame-level Fourier,31425539,119.878918,2.541039,2.515006,0.930045,0.929981,0.543382,1.125286,9.978486,3.091390,0.009451,0.006494,0.019132,25 percent,"partial, flat-tail stop",no,no,no

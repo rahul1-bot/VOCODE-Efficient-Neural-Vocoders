@@ -1,0 +1,9 @@
+# tests.vocode.optimization: The Deployment Transformation Tests
+
+This directory holds 208 tests mirroring `vocode/optimization/`, with one test module per transformation module.
+
+The module `compilation.py` tests TorchInductor compilation: mode selection, application to the synthesis path, and output equivalence at tolerance. The module `quantization.py` tests the dynamic INT8, weight-only integer, and FP16 storage transformations: coverage accounting, dtype outcomes, the boundary adapters including the RFWave-specific backbone adapters, and numerical behavior on constructed modules. The module `pruning.py` tests structured L2 output-channel pruning with the backbone scope resolver and the spectral-head exclusion, global L1 unstructured pruning with its weight-scope collector, the masked and dense-continued semantics, sparsity accounting, and recovered-state verification.
+
+The module `export.py` tests ONNX FP32 export and static QDQ INT8 quantization: artifact records, operator coverage, and calibration-loader handling. The module `deployment.py` tests ONNX Runtime execution: session construction on the CPU provider and the synthesis interface of the wrapped module. The module `sampling.py` tests the RFWave ODE step reduction against the ten-step baseline. The module `recovery.py` tests the recovery runner: mask holding during fine-tuning, learning-rate reduction, and baked-zero verification of the evaluated state. The module `registry.py` tests the variant registry: the closed variant vocabulary, per-architecture technique resolution, the baseline identity, and the support decisions that separate admissible executions from documented exclusions.
+
+Unsupported combinations are asserted to fail explicitly before execution expansion, which is the code path behind the study's exclusion register.

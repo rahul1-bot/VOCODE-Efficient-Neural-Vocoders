@@ -1,0 +1,9 @@
+2026-07-21 06:55:21.748 | INFO | Study 2 execution run_id=s2_hifigan_v2_onnx_int8_static_s42_20260721_0649 architecture=hifigan_v2 seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 06:55:21.748 | INFO | Hypothesis: Calibrated static INT8 QDQ execution on ONNX Runtime changes CPU latency and storage with measured quality response.
+2026-07-21 06:55:45.749 | INFO | Captured 48 calibration mels from the training partition.
+2026-07-21 06:55:53.463 | INFO | Deployed hifigan_v2_int8_static.onnx (1214332 bytes) on providers ('CPUExecutionProvider',)
+2026-07-21 07:01:47.908 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.025184
+2026-07-21 07:01:47.975 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":0.0,"total_macs":0.0,"audio_seconds":1.0,"mel_frames":86,"unsupported_operators":["aten::lift_fresh"],"reason":null}
+2026-07-21 08:24:35.608 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 08:24:35.632 | INFO | Optimized-variant row 1 written for hifigan_v2 variant=onnx_int8_static seed=42
+2026-07-21 08:24:35.632 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 5353.9s

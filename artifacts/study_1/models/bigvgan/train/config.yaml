@@ -1,0 +1,154 @@
+schema_version: 1
+experiment:
+  id: bigvgan_full_bf16bs32_20260704_0735
+  study: 1
+  stage: train
+  architecture: bigvgan
+  variant: base_24khz_100band
+  dataset: LJSpeech-1.1
+  seed: 1234
+  seed_role: training
+  initialization: random
+  status: completed
+  hypothesis: BigVGAN-base trained from random initialization can recover useful LJSpeech
+    waveform synthesis under the fixed Study 1 compute budget.
+  controlled_factor: bigvgan_architecture
+data:
+  source_sample_rate: 22050
+  model_sample_rate: 24000
+  partition_strategy: ordered_identifier_holdout
+  train_utterances: 12475
+  validation_utterances: 100
+  test_utterances: 525
+  training_shuffle: true
+  validation_shuffle: false
+  test_shuffle: false
+  training_segment_size: 8192
+  training_batch_size: 32
+  validation_batch_size: 1
+  num_workers: 4
+  persistent_workers: true
+  prefetch_factor: 4
+  pin_memory: true
+  peak_normalization_enabled: false
+model:
+  input_mel_channels: 100
+  upsample_initial_channel: 512
+  upsample_rates:
+  - 8
+  - 8
+  - 2
+  - 2
+  upsample_kernel_sizes:
+  - 16
+  - 16
+  - 4
+  - 4
+  resblock_kernel_sizes:
+  - 3
+  - 7
+  - 11
+  resblock_dilation_sizes:
+  - - 1
+    - 3
+    - 5
+  - - 1
+    - 3
+    - 5
+  - - 1
+    - 3
+    - 5
+  resblock: '1'
+  activation: snakebeta
+  snake_logscale: true
+  use_bias_at_final: true
+  use_tanh_at_final: true
+  multi_period_discriminator_periods:
+  - 2
+  - 3
+  - 5
+  - 7
+  - 11
+  multi_resolution_discriminator_resolutions:
+  - - 1024
+    - 120
+    - 600
+  - - 2048
+    - 240
+    - 1200
+  - - 512
+    - 50
+    - 240
+  use_spectral_norm: false
+  discriminator_channel_multiplier: 1.0
+optimization:
+  generator_optimizer: AdamW
+  discriminator_optimizer: AdamW
+  learning_rate: 0.0001
+  adam_betas:
+  - 0.8
+  - 0.99
+  generator_scheduler: ExponentialLR
+  discriminator_scheduler: ExponentialLR
+  learning_rate_decay_per_step: 0.9999996
+  gradient_clip_norm: 1000.0
+  epochs: 320
+  completed_optimizer_steps: 124800
+loss:
+  mel_reconstruction_weight: 45.0
+  feature_matching_weight: 2.0
+  adversarial_weight: 1.0
+conditioning_mel_protocol:
+  sample_rate: 24000
+  n_fft: 1024
+  hop_length: 256
+  win_length: 1024
+  n_mels: 100
+  fmin: 0.0
+  fmax: 12000.0
+  mel_scale: slaney
+  center: false
+  pad_mode: reflect
+  manual_reflect_padding: true
+  power: 1.0
+  normalize_mel_basis: true
+  log_clamp_min: 1.0e-05
+  log_base: natural
+reconstruction_mel_protocol:
+  sample_rate: 24000
+  n_fft: 1024
+  hop_length: 256
+  win_length: 1024
+  n_mels: 100
+  fmin: 0.0
+  fmax: null
+  mel_scale: slaney
+  center: false
+  pad_mode: reflect
+  manual_reflect_padding: true
+  power: 1.0
+  normalize_mel_basis: true
+  log_clamp_min: 1.0e-05
+  log_base: natural
+execution:
+  accelerator: cuda
+  hardware: nvidia_l40s
+  precision: bf16-mixed
+  log_interval_steps: 5
+  validation_interval_steps: 1000
+  checkpoint_interval_steps: 5000
+  runtime_profiling_enabled: true
+  runtime_profile_interval_steps: 50
+  elapsed_seconds: 58348.9
+checkpoint_selection:
+  monitor: val_loss
+  mode: min
+  selected_role: evaluated_durable_boundary
+  selected_epoch: 307
+  selected_global_step: 120000
+  selected_metric_value: 0.2518246014416218
+  validation_best_saved_epoch: 294
+  validation_best_saved_global_step: 115000
+  validation_best_saved_metric_value: 0.2399581888318062
+  global_validation_minimum_step: 118000
+  global_validation_minimum_value: 0.23103588536381722

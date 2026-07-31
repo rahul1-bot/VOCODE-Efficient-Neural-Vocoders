@@ -1,0 +1,61 @@
+schema_version: 1
+study: 2
+architecture: hifigan_v2
+variant: onnx_int8_static
+lane: cpu
+same_lane_baseline: baseline_cpu
+intervention:
+  technique: onnx_runtime_deployment
+  static_int8: true
+  opset_version: 17
+  calibration_mel_count: 48
+  intra_op_threads: 8
+  resolved_providers:
+  - CPUExecutionProvider
+  fp32_artifact:
+    artifact_bytes: 3752831
+    initializer_parameter_count: 925985
+    opset_version: 17
+    node_type_counts:
+      Conv: 74
+      LeakyRelu: 69
+      ConvTranspose: 4
+      Add: 44
+      Constant: 4
+      Div: 4
+      Tanh: 1
+  deployed_artifact:
+    artifact_bytes: 1214332
+    initializer_parameter_count: 935917
+    opset_version: 17
+    node_type_counts:
+      Constant: 4
+      DequantizeLinear: 304
+      QuantizeLinear: 148
+      Conv: 74
+      LeakyRelu: 69
+      ConvTranspose: 4
+      Add: 44
+      Div: 4
+      Tanh: 1
+  quantization:
+    graph_representation: QDQ
+    per_channel: true
+    weight_type: QInt8
+    activation_type: QUInt8
+    operator_types:
+    - Conv
+    - ConvTranspose
+    - MatMul
+    - Gemm
+    calibration_source: LJSpeech training partition
+    calibration_mel_count: 48
+runtime_setup:
+  execution_provider:
+  - CPUExecutionProvider
+  intra_op_threads: 8
+  session_build_seconds_mean: 0.07675822166666772
+  session_build_seconds_min: 0.07501305600000308
+  session_build_seconds_max: 0.07805910599999777
+  first_inference_seconds: not_retained
+measurement_note: Calibrated static INT8 QDQ execution on ONNX Runtime CPU; deployment-lane measurement.

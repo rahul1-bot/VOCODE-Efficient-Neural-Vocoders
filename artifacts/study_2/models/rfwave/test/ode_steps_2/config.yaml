@@ -1,0 +1,12 @@
+schema_version: 1
+study: 2
+architecture: rfwave
+variant: ode_steps_2
+lane: b200
+same_lane_baseline: baseline_b200
+intervention:
+  technique: ode_step_reduction
+  baseline_step_count: 10
+  reduced_step_count: 2
+runtime_setup: {}
+measurement_note: Reduced ODE sampling schedule on the flow model; structural inference-step intervention.

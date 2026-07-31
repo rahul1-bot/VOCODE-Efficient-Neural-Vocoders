@@ -1,0 +1,96 @@
+schema_version: 1
+experiment:
+  id: apnet2_full_bf16bs32_20260704_1005
+  study: 1
+  stage: train
+  architecture: apnet2
+  variant: redmist328_ljspeech
+  dataset: LJSpeech-1.1
+  seed: 1234
+  seed_role: training
+  initialization: random
+  status: completed
+  hypothesis: APNet2 trained from random initialization can recover useful LJSpeech
+    waveform synthesis under the fixed Study 1 compute budget.
+  controlled_factor: apnet2_architecture
+data:
+  sample_rate: 22050
+  partition_strategy: ordered_identifier_holdout
+  train_utterances: 12475
+  validation_utterances: 100
+  test_utterances: 525
+  training_shuffle: true
+  validation_shuffle: false
+  test_shuffle: false
+  training_segment_size: 8192
+  training_batch_size: 32
+  validation_batch_size: 1
+  num_workers: 4
+  persistent_workers: true
+  prefetch_factor: 4
+  pin_memory: true
+  peak_normalization_enabled: false
+model:
+  input_mel_channels: 80
+  n_fft: 1024
+  hop_size: 256
+  win_size: 1024
+  asp_channel: 512
+  psp_channel: 512
+  asp_input_conv_kernel_size: 7
+  asp_output_conv_kernel_size: 7
+  psp_input_conv_kernel_size: 7
+  psp_output_r_conv_kernel_size: 7
+  psp_output_i_conv_kernel_size: 7
+  convnext_layer_count: 8
+  convnext_intermediate_dimension: 1536
+optimization:
+  generator_optimizer: AdamW
+  discriminator_optimizer: AdamW
+  learning_rate: 0.0002
+  adam_betas:
+  - 0.8
+  - 0.99
+  generator_scheduler: ExponentialLR
+  discriminator_scheduler: ExponentialLR
+  learning_rate_decay: 0.999
+  gradient_clip_norm: 1000.0
+  epochs: 320
+  completed_optimizer_steps: 124800
+loss:
+  amplitude_weight: 45.0
+  phase_weight: 100.0
+  spectrum_weight: 20.0
+  mel_weight: 45.0
+  resolution_discriminator_weight: 0.1
+  resolution_feature_matching_weight: 0.1
+  real_imaginary_weight: 2.25
+mel_protocol:
+  n_fft: 1024
+  hop_length: 256
+  win_length: 1024
+  n_mels: 80
+  fmin: 0.0
+  fmax: 8000.0
+  mel_scale: slaney
+  center: true
+  pad_mode: reflect
+  power: 1.0
+  normalize_mel_basis: true
+  log_clamp_min: 1.0e-05
+  log_base: natural
+execution:
+  accelerator: cuda
+  hardware: nvidia_l40s
+  precision: bf16-mixed
+  log_interval_steps: 5
+  validation_interval_steps: 1000
+  checkpoint_interval_steps: 5000
+  runtime_profiling_enabled: true
+  runtime_profile_interval_steps: 50
+checkpoint_selection:
+  monitor: val_loss
+  mode: min
+  epoch: 307
+  global_step: 120000
+  metric_value: 443.45948486328126

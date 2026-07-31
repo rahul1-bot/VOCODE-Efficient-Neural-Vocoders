@@ -1,0 +1,9 @@
+2026-07-21 07:02:50.976 | INFO | Study 2 execution run_id=s2_melgan_onnx_int8_static_s43_20260721_0649 architecture=melgan seed=43 experiment_category=optimized_variant stage=test
+2026-07-21 07:02:50.977 | INFO | Hypothesis: Calibrated static INT8 QDQ execution on ONNX Runtime changes CPU latency and storage with measured quality response.
+2026-07-21 07:03:27.399 | INFO | Captured 48 calibration mels from the training partition.
+2026-07-21 07:03:53.518 | INFO | Deployed melgan_int8_static.onnx (4536424 bytes) on providers ('CPUExecutionProvider',)
+2026-07-21 07:13:04.333 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.039320
+2026-07-21 07:13:04.510 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":0.0,"total_macs":0.0,"audio_seconds":1.0,"mel_frames":87,"unsupported_operators":["aten::lift_fresh"],"reason":null}
+2026-07-21 08:43:11.113 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 08:43:11.136 | INFO | Optimized-variant row 1 written for melgan variant=onnx_int8_static seed=43
+2026-07-21 08:43:11.137 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 6020.2s

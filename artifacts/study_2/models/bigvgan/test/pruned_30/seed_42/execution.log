@@ -1,0 +1,7 @@
+2026-07-21 21:22:42.031 | INFO | Study 2 execution run_id=s2_bigvgan_pruned_30_s42_20260721_1443r architecture=bigvgan seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 21:22:42.031 | INFO | Hypothesis: Thirty percent masked magnitude pruning locates the shallow end of the sparsity-quality response curve.
+2026-07-21 21:28:03.722 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.005748
+2026-07-21 21:28:05.068 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":29.65152384,"total_macs":29651523840.0,"audio_seconds":1.0,"mel_frames":93,"unsupported_operators":["aten::_weight_norm","aten::add","aten::div","aten::exp","aten::mul","aten::pad","aten::pow","aten::reciprocal","aten::sin","aten::tanh"],"reason":null}
+2026-07-21 21:51:57.547 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 21:51:57.568 | INFO | Optimized-variant row 1 written for bigvgan variant=pruned_30 seed=42
+2026-07-21 21:51:57.569 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1755.6s

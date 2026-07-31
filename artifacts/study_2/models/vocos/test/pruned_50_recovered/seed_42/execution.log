@@ -1,0 +1,7 @@
+2026-07-22 00:24:39.706 | INFO | Study 2 execution run_id=s2_vocos_pruned_50_recovered_s42_20260721_1443r architecture=vocos seed=42 experiment_category=optimized_variant stage=test
+2026-07-22 00:24:39.706 | INFO | Hypothesis: Recovery fine-tuning after fifty percent pruning restores quality relative to the masked baseline.
+2026-07-22 00:25:15.214 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000393
+2026-07-22 00:25:15.456 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":1.270964224,"total_macs":1270964224.0,"audio_seconds":1.0,"mel_frames":94,"unsupported_operators":["aten::add","aten::cos","aten::exp","aten::gelu","aten::istft","aten::mul","aten::sin"],"reason":null}
+2026-07-22 00:46:44.620 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-22 00:46:44.680 | INFO | Optimized-variant row 1 written for vocos variant=pruned_50_recovered seed=42
+2026-07-22 00:46:44.681 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 1325.0s

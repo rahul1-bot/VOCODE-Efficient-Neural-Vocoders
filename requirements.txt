@@ -1,0 +1,25 @@
+# VOCODE dependency pins, mirroring the study's container image
+# (code/modal/vocode/runtime.py). Python 3.14.
+torch==2.13.0
+torchaudio==2.11.0
+numpy==2.3.3
+scipy==1.16.3
+pesq==0.0.4
+pystoi==0.4.1
+vocos==0.1.0
+huggingface-hub==1.14.0
+gdown==6.0.0
+pghipy==0.1.1
+pydantic==2.13.4
+pydantic-settings==2.12.0
+pyyaml==6.0.3
+loguru==0.7.3
+tqdm==4.67.1
+matplotlib==3.10.7
+annotated-types==0.7.0
+auraloss==0.4.0
+torchcrepe==0.0.24
+fvcore==0.1.5.post20221221
+torchao==0.17.0
+onnx==1.20.1
+onnxruntime==1.24.4

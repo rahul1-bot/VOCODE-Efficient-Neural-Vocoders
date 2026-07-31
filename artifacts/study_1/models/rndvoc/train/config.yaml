@@ -1,0 +1,120 @@
+schema_version: 1
+experiment:
+  id: rndvoc_full_bf16bs32_20260707_0341
+  study: 1
+  stage: train
+  architecture: rndvoc
+  variant: andong_22k_ljspeech
+  dataset: LJSpeech-1.1
+  seed: 1234
+  seed_role: training
+  initialization: random
+  status: completed
+  hypothesis: RNDVoC trained from random initialization can reach its registered paper-anchor
+    quality threshold within the Study 1 gate-one budget.
+  controlled_factor: rndvoc_architecture
+data:
+  sample_rate: 22050
+  partition_strategy: ordered_identifier_holdout
+  train_utterances: 12475
+  validation_utterances: 100
+  test_utterances: 525
+  training_shuffle: true
+  validation_shuffle: false
+  test_shuffle: false
+  training_segment_size: 16384
+  training_batch_size: 32
+  validation_batch_size: 1
+  num_workers: 4
+  persistent_workers: true
+  prefetch_factor: 4
+  pin_memory: true
+  peak_normalization_enabled: false
+model:
+  input_mel_channels: 80
+  fft_size: 1024
+  hop_size: 256
+  window_size: 1024
+  spectrum_bins: 513
+  band_count: 24
+  encoder_channels: 256
+  voc_module_count: 6
+  range_path: fixed_mel_pseudoinverse
+  null_path: learned_band_split_encoder_decoder
+  istft_center: true
+discriminators:
+  multi_period_periods:
+  - 2
+  - 3
+  - 5
+  - 7
+  - 11
+  multi_resolution_stft:
+  - - 1024
+    - 256
+    - 1024
+  - - 2048
+    - 512
+    - 2048
+  - - 512
+    - 128
+    - 512
+optimization:
+  generator_optimizer: AdamW
+  discriminator_optimizer: AdamW
+  learning_rate: 0.0002
+  adam_betas:
+  - 0.8
+  - 0.99
+  generator_scheduler: ExponentialLR
+  discriminator_scheduler: ExponentialLR
+  learning_rate_decay_per_epoch: 0.999
+  update_discipline: alternating_batch_parity
+  maximum_epochs: 320
+  final_global_step: 124800
+  generator_updates: 62400
+loss:
+  amplitude_weight: 45.0
+  phase_weight: 100.0
+  phase_internal_weight: 3.0
+  consistency_weight: 45.0
+  real_imaginary_weight: 45.0
+  mel_weight: 45.0
+  adversarial_weight: 1.0
+  feature_matching_weight: 1.0
+mel_protocol:
+  sample_rate: 22050
+  n_fft: 1024
+  hop_length: 256
+  win_length: 1024
+  n_mels: 80
+  fmin: 0.0
+  conditioning_fmax: 8000.0
+  reconstruction_fmax: 11025.0
+  mel_scale: slaney
+  center: true
+  log_clamp_min: 1.0e-05
+  log_base: natural
+execution:
+  accelerator: cuda
+  hardware: nvidia_l40s
+  precision: bf16-mixed
+  log_interval_steps: 5
+  validation_interval_steps: 1000
+  checkpoint_interval_steps: 5000
+  runtime_profiling_enabled: true
+  runtime_profile_interval_steps: 50
+  elapsed_seconds: 15491.903528351
+checkpoint_selection:
+  monitor: val_loss
+  mode: min
+  selected_role: evaluated_durable_boundary
+  selected_epoch: 307
+  selected_global_step: 120000
+  selected_validation_loss: 433.2544024658203
+  validation_best_saved_epoch: 153
+  validation_best_saved_global_step: 60000
+  validation_best_saved_loss: 430.8488659667969
+  global_validation_minimum_step: 48000
+  global_validation_minimum_value: 430.60247802734375
+  global_validation_minimum_checkpoint_written: false

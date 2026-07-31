@@ -1,0 +1,54 @@
+schema_version: 1
+study: 2
+experiment:
+  id: s2_bigvgan_fp16_weights_s42_20260721_1443
+  stage: test
+  architecture: bigvgan
+  variant: fp16_weights
+  dataset: LJSpeech-1.1
+  seed: 42
+  seed_role: repeated_inference
+  status: completed
+  hypothesis: Half-precision weight storage halves the deployable footprint while its speed and quality
+    response is measured per lane.
+data:
+  sample_rate_hz: 24000
+  partition_strategy: ordered_identifier_holdout
+  train_utterances: 12475
+  validation_utterances: 100
+  test_utterances: 525
+  quality_batch_size: 16
+  timing_batch_size: 1
+  test_shuffle: false
+  full_utterances: true
+intervention:
+  configuration: ../config.yaml
+  same_lane_baseline: baseline_b200
+  checkpoint_role: study_1_selected_state
+  same_state_across_evaluation_seeds: true
+execution:
+  lane: b200
+  hardware: nvidia_b200
+  accelerator: cuda
+  precision: fp32
+  rtf_warmup_iterations: 5.0
+  rtf_timed_repetitions: 3.0
+  timed_utterances: 520.0
+  runtime_setup: {}
+measurements:
+  reported:
+  - pesq
+  - stoi
+  - mel
+  - stft
+  - mcd
+  - las
+  - f0
+  - periodicity
+  - voicing
+  - utmos
+  - rtf
+  - macs
+  - parameters
+  - size
+  mac_status: partial

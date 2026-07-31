@@ -1,0 +1,88 @@
+schema_version: 1
+experiment:
+  id: lpcnet_full_fp32bs128_20260707_0326
+  study: 1
+  stage: train
+  architecture: lpcnet
+  variant: xiph_reference_ljspeech
+  dataset: LJSpeech-1.1
+  seed: 1234
+  seed_role: training
+  initialization: random
+  status: completed
+  hypothesis: LPCNet trained from random initialization can recover stable free-running
+    LJSpeech synthesis within the registered compute fraction.
+  controlled_factor: lpcnet_architecture
+data:
+  source_sample_rate: 22050
+  model_sample_rate: 16000
+  partition_strategy: ordered_identifier_holdout
+  train_utterances: 12475
+  validation_utterances: 100
+  test_utterances: 525
+  training_shuffle: true
+  validation_shuffle: false
+  test_shuffle: false
+  training_segment_size: 2400
+  training_batch_size: 128
+  validation_batch_size: 1
+  num_workers: 4
+  persistent_workers: true
+  prefetch_factor: 4
+  pin_memory: true
+  peak_normalization_enabled: false
+model:
+  frame_size_samples: 160
+  sequence_frames: 15
+  conditioning_features: 20
+  pitch_embedding_cardinality: 256
+  pitch_embedding_dimension: 64
+  frame_convolution_channels: 128
+  frame_convolution_kernel_size: 3
+  frame_dense_channels: 128
+  signal_embedding_cardinality: 256
+  signal_embedding_dimension: 128
+  gru_a_hidden_size: 384
+  gru_b_hidden_size: 16
+  excitation_levels: 256
+  lpc_order: 16
+  preemphasis: 0.85
+optimization:
+  optimizer: Adam
+  learning_rate: 0.001
+  adam_betas:
+  - 0.5
+  - 0.8
+  keras_style_iteration_decay: 5.0e-05
+  maximum_epochs: 319
+  executed_optimizer_steps: 31262
+sparsification:
+  start_step: 2000
+  end_step: 20000
+  interval_steps: 400
+  gru_a_gate_densities:
+  - 0.05
+  - 0.05
+  - 0.2
+  gru_b_input_density: 1.0
+  recurrent_pairwise_clip: 0.992
+loss:
+  objective: excitation_cross_entropy
+execution:
+  accelerator: cuda
+  hardware: nvidia_l40s
+  precision: fp32
+  runtime_profiling_enabled: true
+  runtime_profile_interval_steps: 50
+  elapsed_seconds: 8382.480276159
+checkpoint_selection:
+  monitor: val_loss
+  mode: min
+  selected_role: evaluated_durable_boundary
+  selected_epoch: 306
+  selected_global_step: 30000
+  selected_validation_loss: 3.203131115436554
+  validation_best_saved_epoch: 306
+  validation_best_saved_global_step: 30000
+  validation_best_saved_loss: 3.203131115436554
+  evaluated_and_validation_best_model_state_equivalent: true

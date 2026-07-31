@@ -1,0 +1,48 @@
+schema_version: 1
+study: 2
+architecture: hifigan_v3
+variant: onnx_fp32
+lane: cpu
+same_lane_baseline: baseline_cpu
+intervention:
+  technique: onnx_runtime_deployment
+  static_int8: false
+  opset_version: 17
+  calibration_mel_count: 48
+  intra_op_threads: 8
+  resolved_providers:
+  - CPUExecutionProvider
+  fp32_artifact:
+    artifact_bytes: 5863265
+    initializer_parameter_count: 1462273
+    opset_version: 17
+    node_type_counts:
+      Conv: 20
+      LeakyRelu: 16
+      ConvTranspose: 3
+      Add: 24
+      Constant: 3
+      Div: 3
+      Tanh: 1
+  deployed_artifact:
+    artifact_bytes: 5863265
+    initializer_parameter_count: 1462273
+    opset_version: 17
+    node_type_counts:
+      Conv: 20
+      LeakyRelu: 16
+      ConvTranspose: 3
+      Add: 24
+      Constant: 3
+      Div: 3
+      Tanh: 1
+runtime_setup:
+  execution_provider:
+  - CPUExecutionProvider
+  intra_op_threads: 8
+  session_build_seconds_mean: 0.012865448666666168
+  session_build_seconds_min: 0.011561371999999182
+  session_build_seconds_max: 0.014364579000002209
+  first_inference_seconds: not_retained
+measurement_note: Exported ONNX Runtime CPU execution; same-lane denominator for the static INT8 deployment
+  claim.

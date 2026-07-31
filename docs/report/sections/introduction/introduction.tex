@@ -1,0 +1,57 @@
+\section{Introduction}
+\label{sec:introduction}
+
+A neural vocoder reconstructs speech from an acoustic representation.
+Autoregressive systems generate samples sequentially
+\citep{oord2016wavenet}, whereas adversarial, inverse short-time Fourier
+transform (iSTFT), and flow models move learned computation toward parallel
+waveform synthesis, frame-level spectral prediction, or a few solver steps
+\citep{kong2020hifigan,siuzdak2024vocos,liu2025rfwave}.  These computational
+graphs expose different bottlenecks, so parameter count, serial dependency,
+memory traffic, transform overhead, and solver evaluations need not track
+one another.
+
+Published quality-efficiency rankings also mix corpora, preprocessing,
+training budgets, checkpoint rules, implementations, evaluators, and
+hardware.  Even within one implementation, parameter count, serialized
+bytes, multiply-accumulate counts, and real-time factor (RTF) answer
+different questions.  Deployment transformations widen the gap between a
+method name and the artifact that executes: compilation can break a graph,
+quantization can cover only selected operators, and dense pruning can retain
+neither sparse storage nor sparse kernels
+\citep{han2015pruning,jacob2018quantization,ansel2024pytorch2}.
+
+This work benchmarks twelve neural-vocoder configurations trained from
+scratch under identical data splits and one evaluation implementation.  The
+cohort comprises APNet2, BigVGAN-base, FreeV, HiFi-GAN V1, V2, V3, LPCNet,
+MelGAN, RFWave, RNDVoC, Vocos, and VocosFormer.  Architecture-native
+conditioning, objectives, and training budgets are retained.  Each configuration
+contributes one training trajectory from recorded seed 1234 and one retained
+checkpoint.  Inference seeds 42, 43, and 44 re-execute that frozen state
+rather than retrain; the single exception is static ONNX INT8, which
+rebuilds calibration state on each execution.
+
+Three research questions structure the study.  \emph{RQ1}: under identical
+data splits and one evaluation implementation, but
+architecture-native objectives and budgets, how do the twelve
+configurations trade objective quality, inference latency,
+parameter count, and deployable storage?  \emph{RQ2}: relative to
+same-hardware baselines, how do executed deployment transformations shift
+objective quality, warm real-time factor, and serialized artifact size,
+and how strongly do those effects depend on architecture and execution
+backend?  \emph{RQ3}: which measured deployment artifact is selected under
+explicit hardware-specific constraints on quality, parameter count,
+and deployable storage?  The three are dependent analyses of one
+experiment: transformed variants inherit the trained checkpoints, selection
+consumes their measurements, and unsupported transformations are excluded
+on record.
+
+The scope is deliberately conditional.  LJSpeech contains one speaker.  The
+final 525 utterances form an adaptive evaluation set: their PESQ values
+informed checkpoint decisions and one deterministic repair of RFWave's
+inference sampler.
+Objective measures are proxies, not listener judgments
+\citep{rix2001pesq,taal2011stoi,saeki2022utmos}.  Population-level or causal claims are precluded by one training trajectory
+per configuration, unequal architecture-native budgets, independently
+scheduled training jobs, and the absence of listening or multi-speaker
+experiments.

@@ -1,0 +1,7 @@
+2026-07-21 21:17:55.973 | INFO | Study 2 execution run_id=s2_rfwave_ode_steps_2_s42_20260721_1443r architecture=rfwave seed=42 experiment_category=optimized_variant stage=test
+2026-07-21 21:17:55.973 | INFO | Hypothesis: Reducing the flow sampling schedule to two steps locates the schedule's quality floor.
+2026-07-21 21:18:50.791 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.002141
+2026-07-21 21:18:51.033 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":24.055074816,"total_macs":24055074816.0,"audio_seconds":1.0,"mel_frames":94,"unsupported_operators":["aten::add","aten::complex","aten::cos","aten::div","aten::embedding","aten::exp","aten::gelu","aten::imag","aten::istft","aten::linalg_vector_norm","aten::linspace","aten::mean","aten::mul","aten::pad","aten::pow","aten::randn","aten::real","aten::repeat_interleave","aten::sin","aten::sqrt","aten::stft","aten::sub","aten::tile","aten::unfold"],"reason":null}
+2026-07-21 21:33:04.496 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 21:33:04.509 | INFO | Optimized-variant row 1 written for rfwave variant=ode_steps_2 seed=42
+2026-07-21 21:33:04.509 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 908.6s

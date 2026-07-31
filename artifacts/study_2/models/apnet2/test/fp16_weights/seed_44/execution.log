@@ -1,0 +1,7 @@
+2026-07-21 14:46:44.574 | INFO | Study 2 execution run_id=s2_apnet2_fp16_weights_s44_20260721_1443 architecture=apnet2 seed=44 experiment_category=optimized_variant stage=test
+2026-07-21 14:46:44.574 | INFO | Hypothesis: Half-precision weight storage halves the deployable footprint while its speed and quality response is measured per lane.
+2026-07-21 14:48:22.895 | INFO | RealTimeFactor over 520 timed batches with 3 repetitions each: 0.000462
+2026-07-21 14:48:23.240 | INFO | macs_profile={"status":"profiled_partial","method":"fvcore_jit_trace","giga_macs_per_audio_second":2.728631808,"total_macs":2728631808.0,"audio_seconds":1.0,"mel_frames":87,"unsupported_operators":["aten::add","aten::atan2","aten::complex","aten::cos","aten::div","aten::exp","aten::gelu","aten::hann_window","aten::istft","aten::linalg_vector_norm","aten::mean","aten::mul","aten::sin"],"reason":null}
+2026-07-21 15:01:24.789 | INFO | Per-utterance metric table with 525 rows written to the paired metric table
+2026-07-21 15:01:24.800 | INFO | Optimized-variant row 1 written for apnet2 variant=fp16_weights seed=44
+2026-07-21 15:01:24.800 | INFO | Study 2 execution finished. Rows written: 1. Elapsed: 880.2s

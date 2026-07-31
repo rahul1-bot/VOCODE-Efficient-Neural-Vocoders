@@ -1,0 +1,7 @@
+2026-07-04 15:18:19.550 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:96 - Experiment vocode_checkpoint01_training_reproduction run_id=hifigan_v1_gate2_test_20260704_1720 architecture=hifigan_v1 seed=42 evidence_category=project_trained_reproduction stage=test
+2026-07-04 15:18:19.550 | INFO     | vocode.trainers.scratch_reproduction_runner:_announce_run:101 - Hypothesis: Gate 2 HiFi-GAN V1 final evaluation measures PESQ against threshold 3.4 and the 0.02 improvement rule versus gate 1 at 3.1706.
+2026-07-04 15:24:29.490 | INFO     | vocode.metrics.rtf:on_predict_end:98 - RealTimeFactor over 520 utterances: 0.103254
+2026-07-04 15:24:29.509 | INFO     | vocode.evaluation.audio_quality:start:77 - Audio-quality metric pool initialized with 28 worker threads
+2026-07-04 15:31:20.514 | INFO     | vocode.evaluation.audio_quality:finalize:137 - Test aggregate over 525 utterances: mel_error=0.2704, pesq=3.3173 (failures=0), stoi=0.9748 (failures=0)
+2026-07-04 15:31:20.519 | INFO     | vocode.evaluation.audio_quality:close:157 - Audio-quality metric pool shutdown complete
+2026-07-04 15:31:20.732 | INFO     | vocode.trainers.scratch_reproduction_runner:_finalize_experiment_log:132 - Experiment vocode_checkpoint01_training_reproduction finished. Rows written: 1. Elapsed: 781.2s

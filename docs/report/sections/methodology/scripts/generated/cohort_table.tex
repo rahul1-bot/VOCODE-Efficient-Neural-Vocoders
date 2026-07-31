@@ -1,0 +1,18 @@
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lllrrrcrr@{}}
+  \toprule
+  Configuration & Family & Conditioning & Params & Segment & Batch & Prec. & Updates & State \\
+  \midrule
+  APNet2 & iSTFT GAN & 80 mel / 22.05 & 31.43 & 8,192 & 32 & BF16 & 124.8 & 120k \\
+  BigVGAN-base & Waveform GAN & 100 mel / 24 & 14.03 & 8,192 & 32 & BF16 & 124.8 & 120k \\
+  FreeV & iSTFT GAN & 80 mel / 22.05 & 18.22 & 8,192 & 32 & BF16 & 124.8 & 120k \\
+  HiFi-GAN V1 & Waveform GAN & 80 mel / 22.05 & 13.94 & 8,192 & 32 & BF16 & 254.8 & 245k \\
+  HiFi-GAN V2 & Waveform GAN & 80 mel / 22.05 & 0.93 & 8,192 & 32 & BF16 & 124.8 & 120k \\
+  HiFi-GAN V3 & Waveform GAN & 80 mel / 22.05 & 1.46 & 8,192 & 32 & BF16 & 254.8 & 245k \\
+  LPCNet & Autoregressive & 20 feat / 16 & 1.23 & 2,400 & 128 & FP32 & 31.3 & 30k \\
+  MelGAN & Waveform GAN & 80 mel / 22.05 & 4.27 & 16,000 & 32 & BF16 & 124.8 & 120k \\
+  RNDVoC & iSTFT GAN & 80 mel / 22.05 & 3.57 & 16,384 & 32 & BF16 & 124.8 & 120k \\
+  RFWave & Rectified flow & 100 mel / 24 & 18.14 & 32,512 & 64 & BF16 & 125.0 & 120k \\
+  Vocos & iSTFT GAN & 100 mel / 24 & 13.53 & 16,384 & 32 & BF16 & 124.8 & 120k \\
+  VocosFormer & iSTFT GAN + attn & 100 mel / 24 & 13.78 & 16,384 & 32 & BF16 & 124.8 & 120k \\
+  \bottomrule
+\end{tabular*}

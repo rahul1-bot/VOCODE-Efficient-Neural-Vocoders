@@ -1,0 +1,15 @@
+schema_version: 1
+study: 2
+architecture: rfwave
+variant: pruned_30
+lane: b200
+same_lane_baseline: baseline_b200
+intervention:
+  technique: masked_magnitude_pruning
+  pruning_arm: linear_structured
+  pruning_amount: 0.3
+  measured_sparsity: 0.30043007769145397
+  covered_parameter_fraction: 0.8138123993345717
+runtime_setup: {}
+measurement_note: Masked magnitude pruning without recovery; robustness curve point; no speedup expected
+  from masked zeros.
